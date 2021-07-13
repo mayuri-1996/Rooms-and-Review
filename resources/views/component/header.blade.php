@@ -2,7 +2,7 @@
             <!-- Top header  -->
             <!-- ============================================================== -->
             <!-- Start Navigation -->
-			<div class="header header-transparent dark">
+			<!-- <div class="header header-transparent dark">
 				<div class="container">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
@@ -14,19 +14,9 @@
 						<div class="nav-menus-wrapper" style="transition-property: none;">
 							<ul class="nav-menu">
 							
-								<li class="active"><a href="#">Home<span class="submenu-indicator"></span></a>
-									<ul class="nav-dropdown nav-submenu">
-										<li><a class="active" href="index.html">Home Layout 1</a></li>
-										<li><a href="home-2.html">Home Layout 2</a></li>
-										<li><a href="home-3.html">Home Layout 3</a></li>
-										<li><a href="home-4.html">Home Layout 4</a></li>
-										<li><a href="home-5.html">Home Layout 5</a></li>
-										<li><a href="home-6.html">Home Layout 6</a></li>
-										<li><a href="home-7.html">Home Layout 7</a></li>
-										<li><a href="home-8.html">Home Layout 8</a></li>
-										<li><a href="map.html">Map Home Layout</a></li>
-									</ul>
-								</li>
+								<li class="active"><a href="#">Home<span class="submenu-indicator"></span></a></li>
+
+								<li><a href="{{route('pages.about')}}">About</a></li>
 								
 								<li><a href="JavaScript:Void(0);">Listings<span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
@@ -102,6 +92,11 @@
 										<li><a href="contact.html">Contacts</a></li>
 									</ul>
 								</li>
+								<li><a href="JavaScript:Void(0);{{route('pages.contact')}}">Contacts</a>
+				
+										 <li><a href="contact.html">Contacts</a></li> -->
+									
+								<!-- </li>
 								
 								<li><a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li>
 								
@@ -119,5 +114,67 @@
 						</div>
 					</nav>
 				</div>
+			</div> --> 
+			<!-- End Navigation -->
+
+
+
+			 <!-- Top header  -->
+            <!-- ============================================================== -->
+            <!-- Start Navigation -->
+			<div class="header header-light head-shadow">
+				<div class="container">
+					<nav id="navigation" class="navigation navigation-landscape">
+						<div class="nav-header">
+							<a class="nav-brand" href="#">
+							<img src="{{asset('frontend/assets/img/logo.png')}}" class="logo" alt="" />
+							</a>
+							<div class="nav-toggle"></div>
+						</div>
+						<div class="nav-menus-wrapper" style="transition-property: none;">
+							<ul class="nav-menu">
+							
+								 <!-- <li class="active"> -->
+									 <li><a href="{{route('pages.index')}}">Home<span class="submenu-indicator"></span></a> 
+								
+								</li>
+
+								<li><a href="{{route('pages.about')}}">About</a></li>
+								<li><a href="JavaScript:Void(0);">Property<span class="submenu-indicator"></span></a>
+									<ul class="nav-dropdown nav-submenu">
+										<li><a href="{{route('pages.myproperty')}}">My Property<span class="submenu-indicator"></span></a></li>
+										<li><a href="#">Apply Property<span class="submenu-indicator"></span></a></li>
+										<li><a href="{{route('pages.propertylisting')}}">Property Listing<span class="submenu-indicator"></span></a></li>
+										<li><a href="{{route('pages.propertydetails')}}">Property Details</a></li>
+									</ul>
+								</li>
+
+								<li><a href="{{route('pages.contact')}}">Contacts</a></li>
+								<!-- <li><a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li> -->
+								
+							</ul>
+							
+							<ul class="nav-menu nav-menu-social align-to-right">
+
+							<li>
+									<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
+								</li>
+								
+								<!-- <li>
+									<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login" class="text-success">
+										<i class="fas fa-user-circle mr-2"></i>Signin</a>
+								</li> -->
+								<!-- <li class="add-listing theme-bg">
+									<a href="submit-property.html">Add Property</a>
+								</li> -->
+                            	<li class="add-listing blue">
+									<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login"><img src="assets/img/user-light.svg" width="12" alt="" class="mr-2" />Sign In</a>
+								</li>
+
+							</ul>
+						</div>
+					</nav>
+				</div>
 			</div>
 			<!-- End Navigation -->
+
