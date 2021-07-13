@@ -16,3 +16,8 @@
 // });
 
 Route::get('/','PageController@index')->name('pages.index');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/a','Admin\AdminController@dashBoard');
+    Route::get('/all/buyer-owner','Admin\AdminController@allBuyerOrOwner')->name('admin.all.buyerOwner');
+});
