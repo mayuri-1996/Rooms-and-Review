@@ -5869,16 +5869,19 @@ span.tag_t {
 	margin-bottom:5px;
 }
 .btn.btn-theme-light-2:hover, .btn.btn-theme-light-2:focus, .btn.btn-theme-light-2{
-    background: rgba(15,202,152,0.2) !important;
+    /* background: rgba(15,202,152,0.2) !important; */
+    background: #1266e3 !important;
     border:2px solid rgba(15,202,152,0.3) !important;
 	padding:16px 50px;
-    color: #0fca98 !important;
+    color: #ffffff !important;
 }
 .btn.btn-theme-light:hover, .btn.btn-theme-light:focus, .btn.btn-theme-light{
-    background: rgba(18,102,227,0.2) !important;
+    /* background: rgba(18,102,227,0.2) !important; */
+    background: #1266e3 !important;
     border:2px solid rgba(18,102,227,0.3) !important;
 	padding:16px 50px;
-    color:#1266e3 !important;
+    color: #ffffff !important;
+    /* color:#1266e3 !important; */
 }
 /*-------- Property Style: Property Style 2 ---------*/
 .property-listing {

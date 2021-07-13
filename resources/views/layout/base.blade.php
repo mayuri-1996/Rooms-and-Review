@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		
-        <title>Resido - Residence & Real Estate HTML Template</title>	
+        <title>GoGoal Rooms & Reviews</title>	
 		
         <!-- Custom CSS -->
         <link href="{{asset('frontend/assets/css/styles.css')}}" rel="stylesheet">

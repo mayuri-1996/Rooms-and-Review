@@ -98,7 +98,7 @@
                                     <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Banyon Tree Realty</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price">$7,000</h6>
+                                    <h6 class="listing-card-info-price"> $7,000</h6>
                                 </div>
                             </div>
                         </div>
@@ -1214,7 +1214,7 @@
                     <div class="pricing-wrap basic-pr">
                         
                         <div class="pricing-header">
-                            <h4 class="pr-value"><sup>$</sup>49</h4>
+                            <h4 class="pr-value"><sup>&#837</sup>49</h4>
                             <h4 class="pr-title">Basic Package</h4>
                         </div>
                         <div class="pricing-body">

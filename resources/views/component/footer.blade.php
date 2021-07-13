@@ -8,9 +8,9 @@
                     <div class="footer-widget">
                         <img src="assets/img/logo-light.png" class="img-footer" alt="" />
                         <div class="footer-add">
-                            <p>Collins Street West, Victoria 8007, Australia.</p>
-                            <p>+1 246-345-0695</p>
-                            <p>info@example.com</p>
+                            <p>Siliguri, West Bengal, 734001.</p>
+                            <p>+91 861-739-4614</p>
+                            <p>info@GoGoal.com</p>
                         </div>
                         
                     </div>
@@ -19,10 +19,10 @@
                     <div class="footer-widget">
                         <h4 class="widget-title">Navigations</h4>
                         <ul class="footer-menu">
-                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="{{route('pages.about')}}">About Us</a></li>
                             <li><a href="faq.html">FAQs Page</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{route('pages.contact')}}">Contact</a></li>
                             <li><a href="blog.html">Blog</a></li>
                         </ul>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="footer-widget">
                         <h4 class="widget-title">My Account</h4>
                         <ul class="footer-menu">
-                            <li><a href="#">My Profile</a></li>
+                            <li><a href="{{route('pages.myprofile')}}">My Profile</a></li>
                             <li><a href="#">My account</a></li>
                             <li><a href="#">My Property</a></li>
                             <li><a href="#">Favorites</a></li>
@@ -91,7 +91,7 @@
             <div class="row align-items-center">
                 
                 <div class="col-lg-6 col-md-6">
-                    <p class="mb-0">© 2021 Resido. Designd By <a href="https://themezhub.com">Themez Hub</a> All Rights Reserved</p>
+                    <p class="mb-0">© 2021 GoGoal Room & Reviews. Designd By <a href="https://themezhub.com"></a> All Rights Reserved</p>
                 </div>
                 
                 <div class="col-lg-6 col-md-6 text-right">
