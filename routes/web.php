@@ -11,11 +11,29 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('pages.index');
-// });
+Route::get('admin', function () {
+    return view('admin-panel.auth.login');
+});
 
 Route::get('/','PageController@index')->name('pages.index');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', 'Auth\Admin\AdminController@dashBoard')->name('admin.dashboard');
+    Route::get('index', 'Auth\Admin\AdminController@dashBoard')->name('admin.dashboard');
+
+    Route::get('register', 'Auth\Admin\AdminController@create')->name('admin.register');
+    Route::post('post/register', 'Auth\Admin\AdminController@store')->name('admin.register.store');
+    Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
+    Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
+    Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
+
+
+
+    Route::get('/all/admin','Admin\AdminController@allAdmin')->name('admin.all.admin')->middleware('auth:admin');
+
+    Route::get('/all/buyer-owner','Admin\AdminController@allBuyerOrOwner')->name('admin.all.buyerOwner')->middleware('auth:admin');
+    Route::get('/user/details','Admin\AdminController@userProfile')->name('admin.user.profile')->middleware('auth:admin');
+});
 Route::get('contact','PageController@contact')->name('pages.contact');
 Route::get('about','PageController@about')->name('pages.about');
 Route::get('addproperty','PageController@addproperty')->name('pages.addproperty');
@@ -29,3 +47,7 @@ Route::get('bookmarklisting','PageController@bookmarklisting')->name('pages.book
 Route::get('blog','PageController@blog')->name('pages.blog');
 Route::get('signin','PageController@signin')->name('pages.signin');
 Route::get('signup','PageController@signup')->name('pages.signup');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
