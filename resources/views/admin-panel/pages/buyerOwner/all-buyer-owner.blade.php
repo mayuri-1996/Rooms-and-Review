@@ -1,4 +1,5 @@
 @extends('admin-panel.layout.base')
+@section('title','| Buyer or Owner List')
 @section('content')
 
 <div class="row page-titles">
@@ -57,6 +58,7 @@
                                     <td>Tokyo</td>
                                     <td>63</td>
                                     <td class="text-center">
+                                        <i class="mdi mdi-dots-vertical"></i>
                                         <button type="button" class="btn btn-rounded  btn-outline-info"> 
                                             <i class="mdi mdi-pencil-box"></i> 
                                             View details

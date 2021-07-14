@@ -10,16 +10,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin/assets/images/favicon.png')}}">
-    <title>Admin Press Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('adminPanel/assets/images/favicon.png')}}">
+    <title>Go Goal Admin Panel @yield('title')</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('adminPanel/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- morris CSS -->
-    <link href="{{asset('admin/assets/plugins/morrisjs/morris.css')}}" rel="stylesheet">
+    <link href="{{asset('adminPanel/assets/plugins/morrisjs/morris.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('adminPanel/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="{{asset('admin/css/colors/blue.css')}}" id="theme" rel="stylesheet">
+    <link href="{{asset('adminPanel/css/colors/blue.css')}}" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,38 +63,38 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{asset('admin/assets/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{asset('admin/assets/plugins/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('admin/assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{asset('admin/js/jquery.slimscroll.js')}}"></script>
+    <script src="{{asset('adminPanel/js/jquery.slimscroll.js')}}"></script>
     <!--Wave Effects -->
-    <script src="{{asset('admin/js/waves.js')}}"></script>
+    <script src="{{asset('adminPanel/js/waves.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="{{asset('admin/js/sidebarmenu.js')}}"></script>
+    <script src="{{asset('adminPanel/js/sidebarmenu.js')}}"></script>
     <!--stickey kit -->
-    <script src="{{asset('admin/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
     <!--Custom JavaScript -->
-    <script src="{{asset('admin/js/custom.min.js')}}"></script>
-    <script src="{{asset('admin/js/validation.js')}}"></script>
+    <script src="{{asset('adminPanel/js/custom.min.js')}}"></script>
+    <script src="{{asset('adminPanel/js/validation.js')}}"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!--sparkline JavaScript -->
-    <script src="{{asset('admin/assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
     <!--morris JavaScript -->
-    <script src="{{asset('admin/assets/plugins/raphael/raphael-min.js')}}"></script>
-    <script src="{{asset('admin/assets/plugins/morrisjs/morris.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/raphael/raphael-min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/morrisjs/morris.min.js')}}"></script>
     <!-- Chart JS -->
-    <script src="{{asset('admin/js/dashboard1.js')}}"></script>
+    <script src="{{asset('adminPanel/js/dashboard1.js')}}"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
-    <script src="{{asset('admin/assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
     <!-- This is data table -->
-    <script src="{{asset('admin/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('adminPanel/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <!-- start - This is for export functionality only -->
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
