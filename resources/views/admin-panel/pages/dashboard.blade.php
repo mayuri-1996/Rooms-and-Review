@@ -1,4 +1,5 @@
 @extends('admin-panel.layout.base')
+@section('title','| Dashboard')
 @section('content')
 
     <div class="row page-titles">
