@@ -7798,17 +7798,22 @@ ul.like_share_list li {
 }
 ul.like_share_list li a {
     width: 100%;
-    color: #03a98a !important;
-    background: rgba(3, 169, 138,0.1);
-    border: 1px solid #03a98a;
+    color: #0602f9 !important;
+    background: rgb(21 3 169 / 10%);
+    border: 1px solid #1302f9;
     border-radius: 0.4rem;
     font-weight: 600;
     font-size: 14px;
+   
 }
 ul.like_share_list li:last-child a {
-    background: rgba(249, 93, 2,0.1);
+    /* background: rgba(249, 93, 2,0.1);
     color: #f95d02 !important;
-    border-color: #f95d02;
+    border-color: #f95d02; */
+    background: rgb(74 0 255 / 10%);
+    color: #0602f9 !important;
+    border-color: #1302f9;
+}
 }
 ul.like_share_list li a i{
 	margin-right:7px;

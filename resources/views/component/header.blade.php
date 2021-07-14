@@ -145,7 +145,7 @@
 										<li><a href="{{route('pages.myproperty')}}">My Property<span class="submenu-indicator"></span></a></li>
 										<li><a href="#">Apply Property<span class="submenu-indicator"></span></a></li>
 										<li><a href="{{route('pages.propertylisting')}}">Property Listing<span class="submenu-indicator"></span></a></li>
-										<li><a href="{{route('pages.propertydetails')}}">Property Details</a></li>
+										<!-- <li><a href="{{route('pages.propertydetails')}}">Property Details</a></li> -->
 									</ul>
 								</li>
 

@@ -17,7 +17,7 @@
                         
                     </div>
                 </div>		
-                <div class="col-lg-2 col-md-4">
+                <div class="col-lg-3 col-md-4">
                     <div class="footer-widget">
                         <h4 class="widget-title">Navigations</h4>
                         <ul class="footer-menu">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                         
-                <div class="col-lg-2 col-md-4">
+                <div class="col-lg-3 col-md-4">
                     <div class="footer-widget">
                         <h4 class="widget-title">The Highlights</h4>
                         <ul class="footer-menu">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
                         <h4 class="widget-title">My Account</h4>
                         <ul class="footer-menu">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
                         <h4 class="widget-title">Download Apps</h4>
                         <a href="#" class="other-store-link">
@@ -82,7 +82,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
         </div>
