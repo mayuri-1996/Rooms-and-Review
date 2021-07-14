@@ -39,5 +39,13 @@ class PageController extends Controller
     public function bookmarklisting(){
         return view('pages.bookmarklisting');
     }
-    
+    public function blog(){
+        return view('pages.blog');
+    }
+    public function signin(){
+        return view('pages.signin');
+    }
+    public function signup(){
+        return view('pages.signup');
+    }
 }

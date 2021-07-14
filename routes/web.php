@@ -26,3 +26,6 @@ Route::get('propertylisting','PageController@propertylisting')->name('pages.prop
 Route::get('myprofile','PageController@myprofile')->name('pages.myprofile');
 Route::get('changepassword','PageController@changepassword')->name('pages.changepassword');
 Route::get('bookmarklisting','PageController@bookmarklisting')->name('pages.bookmarklisting');
+Route::get('blog','PageController@blog')->name('pages.blog');
+Route::get('signin','PageController@signin')->name('pages.signin');
+Route::get('signup','PageController@signup')->name('pages.signup');

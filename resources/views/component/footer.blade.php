@@ -6,7 +6,9 @@
                 
                 <div class="col-lg-3 col-md-4">
                     <div class="footer-widget">
-                        <img src="assets/img/logo-light.png" class="img-footer" alt="" />
+                    <a href="{{route('pages.index')}}">
+                        <img src="{{asset('logo.png')}}" class="img-footer" alt="" />
+</a>
                         <div class="footer-add">
                             <p>Siliguri, West Bengal, 734001.</p>
                             <p>+91 861-739-4614</p>
