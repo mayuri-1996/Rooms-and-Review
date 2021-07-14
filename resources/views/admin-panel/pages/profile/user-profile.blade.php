@@ -62,17 +62,10 @@
                             <div class="card-body">
                                 <div class="profiletimeline">
                                     <div class="sl-item">
-                                        <div class="sl-left" style="height: 40px;
-                                        width: 40px;"> 
+                                        <div class="sl-left size-40"> 
                                             {{-- <img src="{{asset('adminPanel/assets/images/users/1.jpg')}}" alt="user" class="img-circle" />  --}}
-                                            <div class="img-circle" style="width: 100%;
-                                            height: 100%;
-                                            background: #1976d2;
-                                            display: flex;
-                                            justify-content: center;
-                                            align-items: center;">
-                                                <i class="mdi mdi-home-variant" style="color: white;
-                                                font-size: 23px;"></i>
+                                            <div class="img-circle property-timeline-circle">
+                                                <i class="mdi mdi-home-variant property-timeline-icon"></i>
                                             </div>
                                         </div>
                                         <div class="sl-right">
@@ -97,7 +90,12 @@
                             <div class="card-body">
                                 <div class="profiletimeline">
                                     <div class="sl-item">
-                                        <div class="sl-left"> <img src="{{asset('adminPanel/assets/images/users/1.jpg')}}" alt="user" class="img-circle" /> </div>
+                                        <div class="sl-left size-40"> 
+                                            {{-- <img src="{{asset('adminPanel/assets/images/users/1.jpg')}}" alt="user" class="img-circle" /> --}}
+                                            <div class="img-circle property-timeline-circle">
+                                                <i class="mdi mdi-home-variant property-timeline-icon"></i>
+                                            </div>
+                                         </div>
                                         <div class="sl-right">
                                             <div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
                                                 <p>assign a new task <a href="#"> Design weblayout</a></p>
