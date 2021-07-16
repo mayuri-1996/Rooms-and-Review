@@ -1,11 +1,13 @@
 @extends('layout.base')
 @section('content')
+
+
                
     <div class="clearfix"></div>
        
     <!-- ============================ Hero Banner  Start================================== -->
-    <div class="image-cover hero-banner" style="background:#eff6ff url(assets/img/home-2.png) no-repeat;">
-        <div class="container">
+    <div class="image-cover hero-banner" style="background-image: url(frontend/assets/img/3.jpg);">
+    <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-11 col-sm-12">
                     <div class="inner-banner-text text-center">
@@ -84,9 +86,9 @@
                         <div class="listing-img-wrapper">
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/1.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/2.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/6.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
                         </div>
@@ -95,10 +97,10 @@
                             <div class="listing-short-detail-wrap">
                                 <div class="listing-short-detail">
                                     <span class="property-type">For Rent</span>
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Banyon Tree Realty</a></h4>
+                                    <h4 class="listing-name verified"><a href="{{route('pages.propertydetails')}}" class="prt-link-detail">Banyon Tree Realty</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price"> $7,000</h6>
+                                    <h6 class="listing-card-info-price"> Rs 7,000</h6>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +124,7 @@
                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />210 Zirak Road, Canada</div>
                             </div>
                             <div class="footer-flex">
-                                <a href="property-detail.html" class="prt-view">View</a>
+                                <a href="{{route('pages.propertydetails')}}" class="prt-view">View</a>
                             </div>
                         </div>
                         
@@ -137,9 +139,9 @@
                         <div class="listing-img-wrapper">
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/2.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/6.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/1.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
                         </div>
@@ -148,10 +150,10 @@
                             <div class="listing-short-detail-wrap">
                                 <div class="listing-short-detail">
                                     <span class="property-type">For Rent</span>
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Blue Reef Properties</a></h4>
+                                    <h4 class="listing-name verified"><a href="{{route('pages.propertydetails')}}" class="prt-link-detail">Blue Reef Properties</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price">$8,400</h6>
+                                    <h6 class="listing-card-info-price">Rs 8,400</h6>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +177,7 @@
                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />210 Zirak Road, Canada</div>
                             </div>
                             <div class="footer-flex">
-                                <a href="property-detail.html" class="prt-view">View</a>
+                                <a href="{{route('pages.propertydetails')}}" class="prt-view">View</a>
                             </div>
                         </div>
                         
@@ -190,9 +192,9 @@
                         <div class="listing-img-wrapper">
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/6.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/2.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/1.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
                         </div>
@@ -201,10 +203,10 @@
                             <div class="listing-short-detail-wrap">
                                 <div class="listing-short-detail">
                                     <span class="property-type">For Rent</span>
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Beacon Homes LLC</a></h4>
+                                    <h4 class="listing-name verified"><a href="{{route('pages.propertydetails')}}" class="prt-link-detail">Beacon Homes LLC</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price">$9,200</h6>
+                                    <h6 class="listing-card-info-price">Rs9,200</h6>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +230,7 @@
                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />210 Zirak Road, Canada</div>
                             </div>
                             <div class="footer-flex">
-                                <a href="property-detail.html" class="prt-view">View</a>
+                                <a href="{{route('pages.propertydetails')}}" class="prt-view">View</a>
                             </div>
                         </div>
                         
@@ -243,9 +245,9 @@
                         <div class="listing-img-wrapper">
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7.jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (1).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (3).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
                         </div>
@@ -254,10 +256,10 @@
                             <div class="listing-short-detail-wrap">
                                 <div class="listing-short-detail">
                                     <span class="property-type">For Rent</span>
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Bluebell Real Estate</a></h4>
+                                    <h4 class="listing-name verified"><a href="{{route('pages.propertydetails')}}" class="prt-link-detail">Bluebell Real Estate</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price">$6,500</h6>
+                                    <h6 class="listing-card-info-price">Rs 6,500</h6>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +283,7 @@
                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />210 Zirak Road, Canada</div>
                             </div>
                             <div class="footer-flex">
-                                <a href="property-detail.html" class="prt-view">View</a>
+                                <a href="{{route('pages.propertydetails')}}" class="prt-view">View</a>
                             </div>
                         </div>
                         
@@ -296,9 +298,9 @@
                         <div class="listing-img-wrapper">
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (1).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (3).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (4).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
                         </div>
@@ -307,10 +309,10 @@
                             <div class="listing-short-detail-wrap">
                                 <div class="listing-short-detail">
                                     <span class="property-type">For Rent</span>
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Found Property Group</a></h4>
+                                    <h4 class="listing-name verified"><a href="{{route('pages.propertydetails')}}" class="prt-link-detail">Found Property Group</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price">$2,850</h6>
+                                    <h6 class="listing-card-info-price">Rs 2,850</h6>
                                 </div>
                             </div>
                         </div>
@@ -334,7 +336,7 @@
                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />210 Zirak Road, Canada</div>
                             </div>
                             <div class="footer-flex">
-                                <a href="property-detail.html" class="prt-view">View</a>
+                                <a href="{{route('pages.propertydetails')}}" class="prt-view">View</a>
                             </div>
                         </div>
                         
@@ -349,9 +351,9 @@
                         <div class="listing-img-wrapper">
                             <div class="list-img-slide">
                                 <div class="click">
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
-                                    <div><a href="single-property-1.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (4).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (5).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
+                                    <div><a href="single-property-1.html"><img src="{{asset('frontend/assets/img/7 (6).jpg')}}" class="img-fluid mx-auto" alt="" /></a></div>
                                 </div>
                             </div>
                         </div>
@@ -360,10 +362,10 @@
                             <div class="listing-short-detail-wrap">
                                 <div class="listing-short-detail">
                                     <span class="property-type">For Rent</span>
-                                    <h4 class="listing-name verified"><a href="single-property-1.html" class="prt-link-detail">Strive Partners Realty</a></h4>
+                                    <h4 class="listing-name verified"><a href="{{route('pages.propertydetails')}}" class="prt-link-detail">Strive Partners Realty</a></h4>
                                 </div>
                                 <div class="listing-short-detail-flex">
-                                    <h6 class="listing-card-info-price">$8,100</h6>
+                                    <h6 class="listing-card-info-price">Rs 8,100</h6>
                                 </div>
                             </div>
                         </div>
@@ -387,7 +389,7 @@
                                 <div class="foot-location"><img src="assets/img/pin.svg" width="18" alt="" />210 Zirak Road, Canada</div>
                             </div>
                             <div class="footer-flex">
-                                <a href="property-detail.html" class="prt-view">View</a>
+                                <a href="{{route('pages.propertydetails')}}" class="prt-view">View</a>
                             </div>
                         </div>
                         
@@ -399,7 +401,7 @@
             
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                    <a href="listings-list-with-sidebar.html" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
+                    <a href="{{route('pages.propertydetails')}}" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
                 </div>
             </div>
             
@@ -425,7 +427,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="location-property-wrap">
                         <div class="location-property-thumb">
-                            <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                            <a href="{{route('pages.propertydetails')}}"><img src="{{asset('frontend/assets/img/7 (7).jpg')}}" class="img-fluid" alt="" /></a>
                         </div>
                         <div class="location-property-content">
                             <div class="lp-content-flex">
@@ -433,7 +435,7 @@
                                 <span>12 Properties</span>
                             </div>
                             <div class="lp-content-right">
-                                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                <a href="{{route('pages.propertydetails')}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -442,7 +444,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="location-property-wrap">
                         <div class="location-property-thumb">
-                            <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                            <a href="{{route('pages.propertydetails')}}"><img src="{{asset('frontend/assets/img/7 (8).jpg')}}" class="img-fluid" alt="" /></a>
                         </div>
                         <div class="location-property-content">
                             <div class="lp-content-flex">
@@ -450,7 +452,7 @@
                                 <span>142 Properties</span>
                             </div>
                             <div class="lp-content-right">
-                                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                <a href="{{route('pages.propertydetails')}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -459,7 +461,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="location-property-wrap">
                         <div class="location-property-thumb">
-                            <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                            <a href="{{route('pages.propertydetails')}}"><img src="{{asset('frontend/assets/img/7 (9).jpg')}}" class="img-fluid" alt="" /></a>
                         </div>
                         <div class="location-property-content">
                             <div class="lp-content-flex">
@@ -467,7 +469,7 @@
                                 <span>17 Properties</span>
                             </div>
                             <div class="lp-content-right">
-                                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                <a href="{{route('pages.propertydetails')}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -476,7 +478,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="location-property-wrap">
                         <div class="location-property-thumb">
-                            <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                            <a href="{{route('pages.propertydetails')}}"><img src="{{asset('frontend/assets/img/7 (10).jpg')}}" class="img-fluid" alt="" /></a>
                         </div>
                         <div class="location-property-content">
                             <div class="lp-content-flex">
@@ -484,7 +486,7 @@
                                 <span>72 Properties</span>
                             </div>
                             <div class="lp-content-right">
-                                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                <a href="{{route('pages.propertydetails')}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -493,7 +495,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="location-property-wrap">
                         <div class="location-property-thumb">
-                            <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                            <a href="{{route('pages.propertydetails')}}"><img src="{{asset('frontend/assets/img/7 (11).jpg')}}" class="img-fluid" alt="" /></a>
                         </div>
                         <div class="location-property-content">
                             <div class="lp-content-flex">
@@ -501,7 +503,7 @@
                                 <span>102 Properties</span>
                             </div>
                             <div class="lp-content-right">
-                                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                <a href="{{route('pages.propertydetails')}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -510,7 +512,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="location-property-wrap">
                         <div class="location-property-thumb">
-                            <a href="listings-list-with-sidebar.html"><img src="https://via.placeholder.com/1200x800" class="img-fluid" alt="" /></a>
+                            <a href="{{route('pages.propertydetails')}}"><img src="{{asset('frontend/assets/img/7 (12).jpg')}}" class="img-fluid" alt="" /></a>
                         </div>
                         <div class="location-property-content">
                             <div class="lp-content-flex">
@@ -518,7 +520,7 @@
                                 <span>95 Properties</span>
                             </div>
                             <div class="lp-content-right">
-                                <a href="listings-list-with-sidebar.html" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                <a href="{{route('pages.propertydetails')}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -528,7 +530,7 @@
             
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                    <a href="listings-list-with-sidebar.html" class="btn btn-theme-light rounded">Browse More Locations</a>
+                    <a href="{{route('pages.propertydetails')}}" class="btn btn-theme-light rounded">Browse More Locations</a>
                 </div>
             </div>
             
@@ -557,7 +559,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/7 (1).jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -566,7 +568,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Resort Valley Ocs</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Resort Valley Ocs</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -578,7 +580,7 @@
                                         <span class="prt-types sale">For Sale</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$7,000</h6>
+                                        <h6 class="listing-card-info-price">Rs 7,000</h6>
                                     </div>
                                 </div>
                             </div>
@@ -602,7 +604,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -618,7 +620,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/7 (3).jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -627,7 +629,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Adobe Property Advisors</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Adobe Property Advisors</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -639,7 +641,7 @@
                                         <span class="prt-types rent">For Rent</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$6,800</h6>
+                                        <h6 class="listing-card-info-price">Rs 6,800</h6>
                                     </div>
                                 </div>
                             </div>
@@ -663,7 +665,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -679,7 +681,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/7 (4).jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -688,7 +690,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Bluebell Real Estate</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Bluebell Real Estate</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -700,7 +702,7 @@
                                         <span class="prt-types rent">For Rent</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$7,000</h6>
+                                        <h6 class="listing-card-info-price">Rs 7,000</h6>
                                     </div>
                                 </div>
                             </div>
@@ -724,7 +726,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -740,7 +742,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/7 (5).jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -749,7 +751,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Agile Real Estate Group</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Agile Real Estate Group</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -761,7 +763,7 @@
                                         <span class="prt-types sale">For Sale</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$8,100</h6>
+                                        <h6 class="listing-card-info-price">Rs 8,100</h6>
                                     </div>
                                 </div>
                             </div>
@@ -785,7 +787,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -801,7 +803,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/4.jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -810,7 +812,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Nestled Real Estate</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Nestled Real Estate</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -822,7 +824,7 @@
                                         <span class="prt-types sale">For Sale</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$5,700</h6>
+                                        <h6 class="listing-card-info-price">Rs 5,700</h6>
                                     </div>
                                 </div>
                             </div>
@@ -846,7 +848,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -862,7 +864,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/5.jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -871,7 +873,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Flow Group Real Estate</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Flow Group Real Estate</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -883,7 +885,7 @@
                                         <span class="prt-types rent">For Rent</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$5,900</h6>
+                                        <h6 class="listing-card-info-price">Rs5,900</h6>
                                     </div>
                                 </div>
                             </div>
@@ -907,7 +909,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -923,7 +925,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/7.jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -932,7 +934,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Strive Partners Realty</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Strive Partners Realty</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -944,7 +946,7 @@
                                         <span class="prt-types sale">For Sale</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$6,200</h6>
+                                        <h6 class="listing-card-info-price">Rs 6,200</h6>
                                     </div>
                                 </div>
                             </div>
@@ -968,7 +970,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -984,7 +986,7 @@
                             
                         <div class="listing-img-wrapper">
                             <a href="single-property-2.html">
-                                <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                <img src="{{asset('frontend/assets/img/7 (7).jpg')}}" class="img-fluid mx-auto" alt="" />
                             </a>
                         </div>
                         
@@ -993,7 +995,7 @@
                             <div class="listing-detail-wrapper-box">
                                 <div class="listing-detail-wrapper">
                                     <div class="listing-short-detail">
-                                        <h4 class="listing-name"><a href="single-property-2.html">Black Oak Realty</a></h4>
+                                        <h4 class="listing-name"><a href="{{route('pages.propertydetails')}}">Black Oak Realty</a></h4>
                                         <div class="fr-can-rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -1005,7 +1007,7 @@
                                         <span class="prt-types rent">For Rent</span>
                                     </div>
                                     <div class="list-price">
-                                        <h6 class="listing-card-info-price">$8,400</h6>
+                                        <h6 class="listing-card-info-price">Rs 8,400</h6>
                                     </div>
                                 </div>
                             </div>
@@ -1029,7 +1031,7 @@
                                     <span class="listing-location"><i class="ti-location-pin"></i>Quice Market, Canada</span>
                                 </div>
                                 <div class="listing-detail-btn">
-                                    <a href="single-property-2.html" class="more-btn">View</a>
+                                    <a href="{{route('pages.propertydetails')}}" class="more-btn">View</a>
                                 </div>
                             </div>
                             
@@ -1044,7 +1046,7 @@
             <!-- Pagination -->
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                    <a href="listings-list-with-sidebar.html" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
+                    <a href="{{route('pages.propertydetails')}}" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
                 </div>
             </div>
             
@@ -1195,100 +1197,11 @@
     <!-- ============================ Smart Testimonials End ================================== -->
     
     <!-- ============================ Price Table Start ================================== -->
-    <section>
-        <div class="container">
-        
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-10 text-center">
-                    <div class="sec-heading center">
-                        <h2>See our packages</h2>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-            
-                <!-- Single Package -->
-                <div class="col-lg-4 col-md-4">
-                    <div class="pricing-wrap basic-pr">
-                        
-                        <div class="pricing-header">
-                            <h4 class="pr-value"><sup>&#837</sup>49</h4>
-                            <h4 class="pr-title">Basic Package</h4>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li class="available">5+ Listings</li>
-                                <li class="available">Contact With Agent</li>
-                                <li class="available">3 Month Validity</li>
-                                <li>7x24 Fully Support</li>
-                                <li>50GB Space</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-bottom">
-                            <a href="#" class="btn-pricing">Choose Plan</a>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <!-- Single Package -->
-                <div class="col-lg-4 col-md-4">
-                    <div class="pricing-wrap platinum-pr recommended">
-                        
-                        <div class="pricing-header">
-                            <h4 class="pr-value"><sup>$</sup>99</h4>
-                            <h4 class="pr-title">Platinum Package</h4>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li class="available">5+ Listings</li>
-                                <li class="available">Contact With Agent</li>
-                                <li class="available">3 Month Validity</li>
-                                <li class="available">7x24 Fully Support</li>
-                                <li>50GB Space</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-bottom">
-                            <a href="#" class="btn-pricing">Choose Plan</a>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <!-- Single Package -->
-                <div class="col-lg-4 col-md-4">
-                    <div class="pricing-wrap standard-pr">
-                        
-                        <div class="pricing-header">
-                            <h4 class="pr-value"><sup>$</sup>199</h4>
-                            <h4 class="pr-title">Standard Package</h4>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li class="available">5+ Listings</li>
-                                <li class="available">Contact With Agent</li>
-                                <li class="available">3 Month Validity</li>
-                                <li class="available">7x24 Fully Support</li>
-                                <li class="available">50GB Space</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-bottom">
-                            <a href="#" class="btn-pricing">Choose Plan</a>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>	
-    </section>
+
     <!-- ============================ Price Table End ================================== -->
     
     <!-- ========================== Download App Section =============================== -->
-    <section class="bg-light">
+    <!-- <section class="bg-light">
         <div class="container">
             <div class="row align-items-center">
                 
@@ -1326,7 +1239,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ========================== Download App Section =============================== -->
     
     <!-- ============================ Call To Action ================================== -->
@@ -1352,7 +1265,7 @@
     
     
     <!-- Log In Modal -->
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="registermodal" aria-hidden="true">
+    <!-- <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="registermodal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
             <div class="modal-content" id="registermodal">
                 <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
@@ -1396,11 +1309,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Modal -->
     
     <!-- Sign Up Modal -->
-    <div class="modal fade signup" id="signup" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
+    <!-- <div class="modal fade signup" id="signup" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
             <div class="modal-content" id="sign-up">
                 <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
@@ -1490,7 +1403,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Modal -->
     
     <a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
