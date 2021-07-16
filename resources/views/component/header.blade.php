@@ -126,8 +126,8 @@
 				<div class="container">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
-							<a class="nav-brand" href="#">
-							<img src="{{asset('frontend/assets/img/logo.png')}}" class="logo" alt="" />
+							<a class="nav-brand" href="{{route('pages.index')}}">
+							<img src="{{asset('logo.png')}}" class="logo" alt="" />
 							</a>
 							<div class="nav-toggle"></div>
 						</div>
@@ -145,30 +145,33 @@
 										<li><a href="{{route('pages.myproperty')}}">My Property<span class="submenu-indicator"></span></a></li>
 										<li><a href="#">Apply Property<span class="submenu-indicator"></span></a></li>
 										<li><a href="{{route('pages.propertylisting')}}">Property Listing<span class="submenu-indicator"></span></a></li>
-										<li><a href="{{route('pages.propertydetails')}}">Property Details</a></li>
+										<!-- <li><a href="{{route('pages.propertydetails')}}">Property Details</a></li> -->
 									</ul>
 								</li>
 
+								
+								<li><a href="{{route('pages.blog')}}">Blogs</a></li>
+
 								<li><a href="{{route('pages.contact')}}">Contacts</a></li>
-								<!-- <li><a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li> -->
+								<!-- <li><a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li> -->
 								
 							</ul>
 							
 							<ul class="nav-menu nav-menu-social align-to-right">
 
-							<li>
+								<li>
 									<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
 								</li>
 								
 								<!-- <li>
-									<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login" class="text-success">
+									<a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#login" class="text-success">
 										<i class="fas fa-user-circle mr-2"></i>Signin</a>
 								</li> -->
 								<!-- <li class="add-listing theme-bg">
 									<a href="submit-property.html">Add Property</a>
 								</li> -->
                             	<li class="add-listing blue">
-									<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#login"><img src="assets/img/user-light.svg" width="12" alt="" class="mr-2" />Sign In</a>
+									<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
 								</li>
 
 							</ul>

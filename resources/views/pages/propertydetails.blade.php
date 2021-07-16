@@ -546,8 +546,8 @@
 							<!-- Like And Share -->
 							<div class="like_share_wrap b-0">
 								<ul class="like_share_list">
-									<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Share"><i class="fas fa-share"></i>Share</a></li>
-									<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Save"><i class="fas fa-heart"></i>Save</a></li>
+									<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Like"><i class="fa fa-thumbs-up"></i> Like</a></li>
+									<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Bookmark"><i class="fa fa-bookmark"></i> Bookmark</a></li>
 								</ul>
 							</div>
 							
@@ -582,7 +582,7 @@
 								</div>
 								
 								<!-- Mortgage Calculator -->
-								<div class="sides-widget">
+								<!-- <div class="sides-widget">
 
 									<div class="sides-widget-header">
 										<div class="sides-widget-details">
@@ -624,7 +624,7 @@
 										<button class="btn btn-black btn-md rounded full-width">Calculate</button>
 									
 									</div>
-								</div>
+								</div> -->
 								
 								<!-- Featured Property -->
 								<div class="sidebar-widgets">
