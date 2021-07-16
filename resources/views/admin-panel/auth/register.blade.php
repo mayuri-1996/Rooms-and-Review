@@ -10,8 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('adminPanel/assets/images/favicon.png')}}">
-    <title>Admin Press Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+    <link rel="icon" type="image/png" href="{{asset('fav.png')}}">
+    <title>Go Goal Admin Panel | Register</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('adminPanel/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->

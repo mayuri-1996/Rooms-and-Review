@@ -10,7 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('adminPanel/assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('fav.png')}}">
+    {{-- <link rel="icon" type="image/png" sizes="16x16" href="{{asset('adminPanel/assets/images/favicon.png')}}"> --}}
     <title>Go Goal Admin Panel @yield('title')</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('adminPanel/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">

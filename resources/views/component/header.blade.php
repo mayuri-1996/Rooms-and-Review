@@ -159,7 +159,7 @@
 							
 							<ul class="nav-menu nav-menu-social align-to-right">
 
-							<li>
+								<li>
 									<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
 								</li>
 								
@@ -171,7 +171,7 @@
 									<a href="submit-property.html">Add Property</a>
 								</li> -->
                             	<li class="add-listing blue">
-									<a href="#" data-bs-toggle="modal" data-bs-target="#login"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
+									<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
 								</li>
 
 							</ul>
