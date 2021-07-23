@@ -546,8 +546,31 @@
 							<!-- Like And Share -->
 							<div class="like_share_wrap b-0">
 								<ul class="like_share_list">
-									<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Like"><i class="fa fa-thumbs-up"></i> Like</a></li>
-									<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Bookmark"><i class="fa fa-bookmark"></i> Bookmark</a></li>
+									@guest
+										<li>
+											<a href="JavaScript:Void(0);"  data-bs-toggle="modal" data-bs-target="#signup" class="btn btn-likes" data-toggle="tooltip" data-original-title="Share"><i class="fas fa-share"></i> Share</a>
+										</li>
+										{{-- <li>
+											
+											<button data-bs-toggle="modal" data-bs-target="#signup" type="submit" class="btn btn-outline-theme" style="width: 100%;border-radius: 0.4rem;">Apply</button>
+										</li> --}}
+										<li>
+											<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup" class="btn btn-likes" data-toggle="tooltip" data-original-title="Bookmark"><i class="fa fa-bookmark"></i> Bookmark</a>
+										</li>
+										{{-- <li>
+											<a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Save" style="    background: rgba(249, 93, 2,0.1);
+											color: #f95d02 !important;
+											border-color: #f95d02;"><i class="fas fa-heart"></i>Save</a>
+										</li> --}}
+										
+
+									@else 
+										<li><a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Like"><i class="fa fa-thumbs-up"></i> Like</a></li>
+										<li>
+											<a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Bookmark"><i class="fa fa-bookmark"></i> Bookmark</a>
+										</li>
+									@endguest
+									
 								</ul>
 							</div>
 							
@@ -555,30 +578,42 @@
 							
 								<!-- Agent Detail -->
 								<div class="sides-widget">
-									<div class="sides-widget-header">
-										<div class="agent-photo"><img src="https://via.placeholder.com/400x400" alt=""></div>
-										<div class="sides-widget-details">
-											<h4><a href="#">Shivangi Preet</a></h4>
-											<span><i class="lni-phone-handset"></i>(91) 123 456 7895</span>
+									@guest
+										<div class="sides-widget-header">
+											<div class="sides-widget-details">
+												<h4><a href="#" data-bs-toggle="modal" data-bs-target="#apply">Apply for rent</a></h4>
+												{{-- <span>Fill the below information</span> --}}
+											</div>
+											<div class="clearfix"></div>
 										</div>
-										<div class="clearfix"></div>
-									</div>
+									@else 
+										<div class="sides-widget-header">
+											<div class="agent-photo"><img src="https://via.placeholder.com/400x400" alt=""></div>
+											<div class="sides-widget-details">
+												<h4><a href="#">Shivangi Preet</a></h4>
+												<span><i class="lni-phone-handset"></i>(91) 123 456 7895</span>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="sides-widget-body simple-form">
+											<div class="form-group">
+												<label>Email</label>
+												<input type="text" class="form-control" placeholder="Your Email">
+											</div>
+											<div class="form-group">
+												<label>Phone No.</label>
+												<input type="text" class="form-control" placeholder="Your Phone">
+											</div>
+											<div class="form-group">
+												<label>Description</label>
+												<textarea class="form-control">I'm interested in this property.</textarea>
+											</div>
+											<button class="btn btn-black btn-md rounded full-width">Apply for rent</button>
+										</div>
+									@endguest
 									
-									<div class="sides-widget-body simple-form">
-										<div class="form-group">
-											<label>Email</label>
-											<input type="text" class="form-control" placeholder="Your Email">
-										</div>
-										<div class="form-group">
-											<label>Phone No.</label>
-											<input type="text" class="form-control" placeholder="Your Phone">
-										</div>
-										<div class="form-group">
-											<label>Description</label>
-											<textarea class="form-control">I'm interested in this property.</textarea>
-										</div>
-										<button class="btn btn-black btn-md rounded full-width">Send Message</button>
-									</div>
+									
+									
 								</div>
 								
 								<!-- Mortgage Calculator -->
@@ -740,6 +775,57 @@
 				</div>
 			</section>
 			<!-- ============================ Call To Action End ================================== -->
+
+
+			<!-- Sign Up Modal -->
+			<div class="modal fade signup" id="signup" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document" style="max-width: 500px;">
+					<div class="modal-content" id="sign-up">
+						<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
+						<div class="modal-body">
+							<div class="login-form">
+								<div class="row" style="margin-bottom: 20px">
+									<h4 class="text-center">
+										You are not signed in
+									</h4>
+									<h6 class="text-center">
+										To share/bookmark this property please sign in first
+									</h6>										
+								</div>
+								<a href="{{route('pages.signin')}}">
+									<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Sign In</button>				
+								</a>
+							</div>														
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+
+			<!-- Sign Up Modal -->
+			<div class="modal fade apply" id="apply" tabindex="-1" role="dialog" aria-labelledby="apply" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document" style="max-width: 500px;">
+					<div class="modal-content" id="sign-up">
+						<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
+						<div class="modal-body">
+							<div class="login-form">
+								<div class="row" style="margin-bottom: 20px">
+									<h4 class="text-center">
+										You are not signed in
+									</h4>
+									<h6 class="text-center">
+										To apply this property please sign in first
+									</h6>										
+								</div>
+								<a href="{{route('pages.signin')}}">
+									<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Sign In</button>				
+								</a>
+							</div>														
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
 			
 
             @endsection

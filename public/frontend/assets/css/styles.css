@@ -7798,9 +7798,12 @@ ul.like_share_list li {
 }
 ul.like_share_list li a {
     width: 100%;
-    color: #0602f9 !important;
+    /* color: #0602f9 !important;
     background: rgb(21 3 169 / 10%);
-    border: 1px solid #1302f9;
+    border: 1px solid #1302f9; */
+    color: #03a98a !important;
+    background: rgba(3, 169, 138,0.1);
+    border: 1px solid #03a98a;
     border-radius: 0.4rem;
     font-weight: 600;
     font-size: 14px;

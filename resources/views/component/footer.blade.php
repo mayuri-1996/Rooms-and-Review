@@ -7,7 +7,7 @@
                 <div class="col-lg-3 col-md-4">
                     <div class="footer-widget">
                     <a href="{{route('pages.index')}}">
-                        <img src="{{asset('logo.png')}}" class="img-footer" alt="" />
+                        <img src="{{asset('logo-white.jpeg')}}" class="img-footer" alt="" />
 </a>
                         <div class="footer-add">
                             <p>Siliguri, West Bengal, 734001.</p>

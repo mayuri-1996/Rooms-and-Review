@@ -33,6 +33,10 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/all/buyer-owner','Admin\AdminController@allBuyerOrOwner')->name('admin.all.buyerOwner')->middleware('auth:admin');
     Route::get('/user/details','Admin\AdminController@userProfile')->name('admin.user.profile')->middleware('auth:admin');
+
+    // Propery Section
+    Route::get('/all/property','Admin\AdminController@allProperty')->name('admin.all.property')->middleware('auth:admin');
+    Route::get('/add/property','Admin\AdminController@addProperty')->name('admin.add.property')->middleware('auth:admin');
 });
 Route::get('contact','PageController@contact')->name('pages.contact');
 Route::get('about','PageController@about')->name('pages.about');

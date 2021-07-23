@@ -28,5 +28,14 @@ class AdminController extends Controller
         return view('admin-panel.pages.profile.user-profile');
     }
 
+    public function allProperty(){
+        return view('admin-panel.pages.properties.all');
+    }
+
+    public function addProperty(){
+        return view('admin-panel.pages.properties.add');
+    }
+
+
 
 }

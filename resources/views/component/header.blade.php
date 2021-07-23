@@ -159,9 +159,16 @@
 							
 							<ul class="nav-menu nav-menu-social align-to-right">
 
-								<li>
-									<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
-								</li>
+								@guest
+									<li>
+										<a href="{{route('pages.signin')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
+									</li>
+								@else 
+									<li>
+										<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
+									</li>
+								@endguest
+								
 								
 								<!-- <li>
 									<a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#login" class="text-success">
@@ -170,10 +177,16 @@
 								<!-- <li class="add-listing theme-bg">
 									<a href="submit-property.html">Add Property</a>
 								</li> -->
-                            	<li class="add-listing blue">
-									<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
-								</li>
-
+								@guest
+									<li class="add-listing blue">
+										<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
+									</li>
+								@else
+									<li class="add-listing blue">
+										<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />{{Auth::user()->name}}</a>
+									</li>
+								@endguest
+                            	
 							</ul>
 						</div>
 					</nav>
