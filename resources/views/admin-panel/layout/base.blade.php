@@ -22,12 +22,25 @@
     <!-- You can change the theme colors from here -->
     <link href="{{asset('adminPanel/css/colors/blue.css')}}" id="theme" rel="stylesheet">
     <link href="{{asset('adminPanel/css/custom.css')}}" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="{{asset('adminPanel/assets/plugins/select2/dist/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <link href="{{asset('adminPanel/assets/plugins/switchery/dist/switchery.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('adminPanel/assets/plugins/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('adminPanel/assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+    <link href="{{asset('adminPanel/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('adminPanel/assets/plugins/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        .select2-container--default .select2-selection--single {
+            border-color: #b1b8bb;
+            height: 38px !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 38px;
+        }
+    </style>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -152,6 +165,11 @@
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
         });
+    </script>
+
+    <script src="{{asset('adminPanel/assets/plugins/select2/dist/js/select2.full.min.js')}}" type="text/javascript"></script>
+    <script>
+        $(".select2").select2();
     </script>
 
 </body>
