@@ -27,8 +27,6 @@ Route::prefix('admin')->group(function () {
     Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
     Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
 
-
-
     Route::get('/all/admin','Admin\AdminController@allAdmin')->name('admin.all.admin')->middleware('auth:admin');
 
     Route::get('/all/buyer-owner','Admin\AdminController@allBuyerOrOwner')->name('admin.all.buyerOwner')->middleware('auth:admin');
@@ -37,6 +35,17 @@ Route::prefix('admin')->group(function () {
     // Propery Section
     Route::get('/all/property','Admin\AdminController@allProperty')->name('admin.all.property')->middleware('auth:admin');
     Route::get('/add/property','Admin\AdminController@addProperty')->name('admin.add.property')->middleware('auth:admin');
+    Route::post('/add/property','Admin\AdminController@postProperty')->name('admin.post.property')->middleware('auth:admin');
+
+    // Property Type
+    Route::get('/all/property/type','Admin\AdminController@allPropertyType')->name('admin.all.propertytype')->middleware('auth:admin');
+    Route::get('/add/property/type','Admin\AdminController@addPropertyType')->name('admin.add.propertytype')->middleware('auth:admin');
+    Route::post('/add/property/type','Admin\AdminController@postPropertyType')->name('admin.post.propertytype')->middleware('auth:admin');
+
+    // Other feachure Section
+    Route::get('/all/other-feachures','Admin\AdminController@allOtherFeachures')->name('admin.all.otherfeachure')->middleware('auth:admin');
+    Route::get('/add/other-feachures','Admin\AdminController@addOtherFeachures')->name('admin.add.otherfeachure')->middleware('auth:admin');
+    Route::post('/post/other-feachures','Admin\AdminController@postOtherFeachures')->name('admin.post.otherfeachure')->middleware('auth:admin');
 });
 Route::get('contact','PageController@contact')->name('pages.contact');
 Route::get('about','PageController@about')->name('pages.about');
