@@ -28,17 +28,15 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.dashboard');
                 }
                 break;
-//            case 'manager':
-//                if (Auth::guard($guard)->check()) {
-//                    return redirect()->route('student.dashboard');
-//                }
-//                break;
-
-
+        //    case 'buyer':
+        //        if (Auth::guard($guard)->check()) {
+        //            return redirect()->route('pages.index');
+        //        }
+        //        break;
 
             default:
                 if (Auth::guard($guard)->check()) {
-                    return redirect('/login');
+                    return redirect('/User-Login');
                 }
                 break;
         }

@@ -133,33 +133,47 @@
 						</div>
 						<div class="nav-menus-wrapper" style="transition-property: none;">
 							<ul class="nav-menu">
+
+								<li><a href="JavaScript:Void(0);">Kolkata<span class="submenu-indicator"></span></a>
+									<ul class="nav-dropdown nav-submenu">
+										<li style="margin-bottom: 20px;">
+											<i class="icofont-google-map"></i> India
+										</li>
+										<li>
+											<div class="row">
+												@foreach ($states as $state)
+													<div class="col-md-2 mb-3"><a href="{{route('pages.index')}}">{{$state->zone_name}}</a></div>
+												@endforeach
+											</div>
+										</li>
+										
+									</ul>
+								</li>
 							
 								 <!-- <li class="active"> -->
-									 <li><a href="{{route('pages.index')}}">Home<span class="submenu-indicator"></span></a> 
-								
-								</li>
+								{{-- <li><a href="{{route('pages.index')}}">Home<span class="submenu-indicator"></span></a></li> --}}
 
-								<li><a href="{{route('pages.about')}}">About</a></li>
-								<li><a href="JavaScript:Void(0);">Property<span class="submenu-indicator"></span></a>
+								{{-- <li><a href="{{route('pages.about')}}">About</a></li> --}}
+								{{-- <li><a href="JavaScript:Void(0);">Property<span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
 										<li><a href="{{route('pages.myproperty')}}">My Property<span class="submenu-indicator"></span></a></li>
 										<li><a href="#">Apply Property<span class="submenu-indicator"></span></a></li>
 										<li><a href="{{route('pages.propertylisting')}}">Property Listing<span class="submenu-indicator"></span></a></li>
 										<!-- <li><a href="{{route('pages.propertydetails')}}">Property Details</a></li> -->
 									</ul>
-								</li>
+								</li> --}}
 
 								
-								<li><a href="{{route('pages.blog')}}">Blogs</a></li>
+								{{-- <li><a href="{{route('pages.blog')}}">Blogs</a></li> --}}
 
-								<li><a href="{{route('pages.contact')}}">Contacts</a></li>
+								{{-- <li><a href="{{route('pages.contact')}}">Contacts</a></li> --}}
 								<!-- <li><a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li> -->
 								
 							</ul>
 							
 							<ul class="nav-menu nav-menu-social align-to-right">
 
-								@guest
+								{{-- @guest
 									<li>
 										<a href="{{route('pages.signin')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
 									</li>
@@ -168,7 +182,7 @@
 										<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
 									</li>
 								@endguest
-								
+								 --}}
 								
 								<!-- <li>
 									<a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#login" class="text-success">
@@ -177,7 +191,117 @@
 								<!-- <li class="add-listing theme-bg">
 									<a href="submit-property.html">Add Property</a>
 								</li> -->
+
 								@guest
+								<li>
+									<a href="JavaScript:Void(0);" class="mr-3" style="margin-right: 15px;">
+
+										Login<span class="submenu-indicator"></span>
+									</a>
+
+									{{-- <a href="JavaScript:Void(0);" style="padding: 18px 12px;">
+										<button type="submit" class="btn btn-outline-theme">Hello, Mayuri Roy</button>
+									</a> --}}
+
+									<ul class="nav-dropdown nav-submenu" style="right: auto !important;">
+										<li>
+											<div class="row">
+												<div class="col-md-6">
+													<p style="padding-left: 10px;">
+														My Activities 
+													</p>
+												</div>
+												<div class="col-md-6 pl-0" style="padding-left: 0;">
+													<hr>
+												</div>
+											</div>											
+										</li>
+										<li>
+											<a href="{{route('pages.myproperty')}}">Contacted Properties</a>
+										</li>
+										<li>
+											<a href="{{route('pages.myproperty')}}">Bookmarked Properties</a>
+										</li>
+										<li>
+											<a href="#">My Profile<span class="submenu-indicator"></span></a>
+										</li>
+										<li>
+											<button type="submit" class="btn btn-theme btn-rounded w-100 mt-2" style="padding-top: 8px;padding-bottom: 8px;">Login</button>
+											<p class="text-center">
+												New to GoGoal? 
+												<a href="{{route('pages.signin')}}"><strong>Sign Up</strong></a>
+											</p>
+										</li>
+									</ul>
+								</li>
+
+								@else 
+
+								<li>
+									<a href="JavaScript:Void(0);" class="hide-indicator" style="padding: 18px 12px;">
+										<button type="submit" class="btn btn-outline-theme">Hello, Mayuri Roy</button>
+									</a>
+
+									<ul class="nav-dropdown nav-submenu" style="right: auto !important;">
+										<li>
+											<div class="row">
+												<div class="col-md-6">
+													<p style="padding-left: 10px;">
+														My Activities 
+													</p>
+												</div>
+												<div class="col-md-6 pl-0" style="padding-left: 0;">
+													<hr>
+												</div>
+											</div>											
+										</li>
+										<li>
+											<a href="{{route('pages.myproperty')}}">Contacted Properties</a>
+										</li>
+										<li>
+											<a href="{{route('pages.myproperty')}}">Bookmarked Properties</a>
+										</li>
+										<li>
+											<a href="#">My Profile<span class="submenu-indicator"></span></a>
+										</li>
+										<li>
+											<button type="submit" class="btn btn-theme btn-rounded w-100 mt-2" style="padding-top: 8px;padding-bottom: 8px;">Login</button>
+											<p class="text-center">
+												New to GoGoal? 
+												<a href="{{route('pages.signin')}}"><strong>Sign Up</strong></a>
+											</p>
+										</li>
+									</ul>
+								</li>
+								@endguest
+
+								@guest
+									<li class="post-property-btn">
+										<a href="{{route('pages.signin')}}" class="btn btn-call-to-act btn-outline-theme" style="padding-top: 8px;
+										padding-bottom: 8px;">Post Property</a>										
+									</li>
+								@else 
+									{{-- <li>
+										<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Post Property</a>
+									</li> --}}
+									<li class="post-property-btn">
+										<a href="{{route('pages.addproperty')}}" class="btn btn-call-to-act btn-outline-theme" style="padding-top: 8px;
+										padding-bottom: 8px;">Post Property</a>										
+									</li>
+									<a href="{{ route('buyer.auth.logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-power-off"></i> Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('buyer.auth.logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+								@endguest
+
+
+								
+								
+								{{-- @guest
 									<li class="add-listing blue">
 										<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
 									</li>
@@ -185,12 +309,28 @@
 									<li class="add-listing blue">
 										<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />{{Auth::user()->name}}</a>
 									</li>
-								@endguest
+								@endguest --}}
+
+								
+
+								<li id="show">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</li>
                             	
 							</ul>
 						</div>
 					</nav>
 				</div>
 			</div>
+			<div id="show_div" style="display: none">
+				@include('component.right-sidebar')
+			</div>
+			<script src="{{asset('frontend/assets/js/jquery.min.js')}}"></script>
+			<script>
+				$('#show').on('click', function(){
+					$('#show_div').show();
+				});
+			</script>
+
 			<!-- End Navigation -->
 

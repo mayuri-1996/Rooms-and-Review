@@ -3343,6 +3343,7 @@ nav a:hover {
 .nav-menu>.focus>a,
 .nav-menu>li:hover>a {
     color:#0fca98 !important;
+    /* color: #1266e3 !important; */
 }
 
 .nav-menu>li>a>[class*=ion-],
@@ -11846,4 +11847,64 @@ a.blue2-theme {
 .sd-list-right {
     padding: 1rem 1rem;
 }
+}
+
+.nav-menu>.active>a,
+.nav-menu>.focus>a,
+.nav-menu>.post-property-btn:hover>a {
+    /* color:#0fca98 !important; */
+    color: white !important;
+}
+
+.hide-indicator > .submenu-indicator{
+    display: none;
+}
+
+.bg-img{
+    background: url('.././img/register_img.jpg');
+    background-size: cover;
+}
+
+.register-left-col{
+    background: #000000ab;
+    padding: 49px 50px 50px 50px;
+}
+
+.register-left-col ul{
+    list-style: square;
+}
+
+.submit-section .h-100{
+    min-height: auto;
+}
+
+.submit-section .form-control{
+    height: 40px;
+}
+
+.register-left-col ul li{
+    color: #ffffff99;
+}
+
+.register-btn{
+    padding: 10px 50px !important;
+}
+
+.auth-bottom-div{
+    margin-bottom: 0;
+}
+
+.auth-bottom-div label{
+    font-size: 16px;
+}
+
+.buyer_name_div{
+    border: 1px solid white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 }

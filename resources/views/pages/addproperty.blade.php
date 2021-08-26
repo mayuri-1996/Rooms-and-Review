@@ -1,4 +1,4 @@
-@extends('layout.base')
+{{-- @extends('layout.base')
 @section('content')
 
 <div class="clearfix"></div>
@@ -315,4 +315,137 @@
 			</section>
 			<!-- ============================ Submit Property End ================================== -->
 
-            @endsection
+            @endsection --}}
+
+
+			@extends('layout.base')
+@section('content')
+
+	<section class="bg-light pt-3 pb-3">
+			
+		<div class="container">
+			<div class="row">
+				
+				<!-- Submit Form -->
+				<div class="col-md-12 col-md-12">
+				
+					<div class="submit-page p-0">
+						<div class="form-submit">	
+							
+							<div class="submit-section">
+								<div class="row">
+									<div class="col-md-6 bg-img p-0">
+										<div class="w-100 h-100 register-left-col">
+											<h3 class="text-white">
+												Things you can enjoy with GoGoal
+											</h3>
+											<ul>
+												<li>Post your property for free.</li>
+												<li>Get 100% assurance with good environment for every room.</li>
+												<li>Search rooms all over the country.</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="p-20">
+											<h3>Post Property for Free</h3>
+											<form action="{{route('pages.post.addproperty')}}" method="post">
+												@csrf
+												<div class="form-group col-md-12">
+													<label>
+														Full Name
+													</label>
+													<input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" readonly>
+												</div>
+	
+												<div class="form-group col-md-12">
+													<label>Email</label>
+													<input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" readonly>
+												</div>
+	
+												<div class="form-group col-md-12">
+													<label>Phone</label>
+													<input type="text" class="form-control" name="phone" value="{{Auth::user()->phone}}" readonly>
+												</div>
+
+												<div class="form-group col-md-12">
+													<label>Address</label>
+													<textarea class="form-control" name="address" rows="5"></textarea>
+												</div>
+
+												{{-- <div class="form-group col-md-12">
+													<div class="row">
+														<div class="form-group col-md-4">
+															<label>Land Mark</label>
+															<input type="text" class="form-control" name="phone" value="{{Auth::user()->land_mark}}">
+														</div>
+														<div class="form-group col-md-8">
+															<label>Address</label>
+															<input type="text" class="form-control" name="phone" value="{{Auth::user()->street_name}}">
+														</div>
+													</div>													
+												</div> --}}
+
+												{{-- <div class="form-group col-md-12">
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label>Country</label>
+															<select id="country" class="form-control country" name="country_id">
+																<option value="">&nbsp;</option>
+																@foreach ($countries as $country)
+																	<option value="{{$country->id}}">{{$country->name}}</option>
+																@endforeach
+															</select>
+														</div>
+														<div class="form-group col-md-6">
+															<label>State</label>
+															<select id="ptypes" class="form-control state" name="state_id">
+																<option value="">&nbsp;</option>
+															</select>
+														</div>
+													</div>													
+												</div> --}}
+												
+	
+												<div class="form-group col-lg-12 col-md-12">
+													<label>GoGoal Agreement *</label>
+													<ul class="no-ul-list">
+														<li>
+															<input id="aj-1" class="checkbox-custom agree_checkbox" name="agree" type="checkbox">
+															<label for="aj-1" class="checkbox-custom-label">
+																I agree to GoGoal's T&C, Privacy Policy
+															</label>
+														</li>
+													</ul>
+												</div>
+											
+												<div class="form-group col-lg-12 col-md-12">
+													<button class="btn btn-theme-light-2 rounded w-100 property-submit-btn" type="submit" disabled>I Want to Post</button>
+												</div>
+											</form>
+										</div>
+									</div>									
+								</div>
+							</div>
+						</div>									
+					</div>
+				</div>
+				
+			</div>
+		</div>
+					
+	</section>
+
+	<script>
+		$('.agree_checkbox').on('click', function(e){
+			var checked_status = this.checked;
+
+			if(checked_status == true){
+				$('.property-submit-btn').removeAttr('disabled');
+			}else {
+				$(".property-submit-btn").attr("disabled", "disabled");
+			}
+		})
+	</script>
+
+@endsection

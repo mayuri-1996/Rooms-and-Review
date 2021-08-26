@@ -67,12 +67,12 @@ class Handler extends ExceptionHandler
             case 'admin':
                 $login = 'admin.auth.login';
                 break;
-//            case 'manager':
-//                $login = 'student.VerifyOtp';
-//                break;
+        //    case 'buyer':
+        //        $login = 'pages.signup';
+        //        break;
 
             default:
-                $login = 'login';
+                $login = 'pages.signup';
                 break;
         }
         return redirect()->guest(route($login));

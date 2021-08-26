@@ -55,6 +55,15 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
         ],
+
+        // 'buyer' => [
+        //     'driver' => 'session',
+        //     'provider' => 'buyers',
+        // ],
+        // 'buyer-api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'buyers',
+        // ],
     ],
 
     /*
@@ -77,13 +86,19 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Model\Buyer::class,
+            // 'model' => App\User::class,
         ],
 
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Model\Admin::class,
         ],
+
+        // 'buyers' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Model\Buyer::class,
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',

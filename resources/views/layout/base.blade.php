@@ -50,6 +50,46 @@
 		<script src="{{asset('frontend/assets/js/imagesloaded.js')}}"></script>
 		 
 		<script src="{{asset('frontend/assets/js/custom.js')}}"></script>
+
+		<script>
+			$('.country').select2({}).on("select2:select", function (e) {
+				var country_id = $(this).val();
+				$.ajax({
+					url: "{{route('admin.get.states')}}",
+					type: 'get',
+					dataType: 'json',
+					data: {country_id: country_id},
+					success: function(res){
+						console.log(res)
+						res.forEach(element => {
+							var states = `<option value="`+element.id+`">`+element.zone_name+`</option>`
+							$('.state').append(states)
+						});
+						
+					}
+				});
+			});
+
+			$('.state').select2({}).on("select2:select", function (e) {
+				// alert('ok')
+				var state_id = $(this).val();
+				$.ajax({
+					url: "{{route('admin.get.cities')}}",
+					type: 'get',
+					dataType: 'json',
+					data: {state_id: state_id},
+					success: function(res){
+						console.log(res)
+						res.forEach(element => {
+							var city = `<option value="`+element.id+`">`+element.city_name+`</option>`
+							$('.city').append(city);
+						})
+					}
+				});
+			})
+
+		</script>
+		
 		<!-- ============================================================== -->
 		<!-- This page plugins -->
 		<!-- ============================================================== -->
