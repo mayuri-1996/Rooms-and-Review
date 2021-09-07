@@ -434,6 +434,7 @@ $(function() {
 	
 	// Home Slider
 	$('.home-slider').slick({
+		
 	  centerMode:false,
 	  slidesToShow:1,
 	  responsive: [
@@ -457,7 +458,7 @@ $(function() {
 	$('.click').slick({
 	  slidesToShow:1,
 	  slidesToScroll: 1,
-	  autoplay:false,
+	  autoplay:true,
 	  autoplaySpeed: 2000,
 	});
 	

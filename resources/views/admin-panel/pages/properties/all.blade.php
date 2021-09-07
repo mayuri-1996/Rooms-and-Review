@@ -64,10 +64,13 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <button type="button" class="btn btn-rounded  btn-outline-info"> 
-                                                <i class="mdi mdi-pencil-box"></i> 
-                                                View details
-                                            </button>
+                                            <a href="{{route('admin.details.property',$property->id)}}">
+                                                <button type="button" class="btn btn-rounded  btn-outline-info"> 
+                                                    <i class="mdi mdi-pencil-box"></i> 
+                                                    View details
+                                                </button>
+                                            </a>
+                                            
                                         </td>
                                                                                
                                     </tr>

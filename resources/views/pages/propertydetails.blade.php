@@ -14,6 +14,7 @@
 							<img src="{{asset('uplaods/'.$image->big_img)}}" class="img-fluid mx-auto" alt="" />
 						</a>
 					</div>
+					
 				@endforeach
 
 			@else
@@ -26,7 +27,7 @@
 			@endif
 			
 		</div>
-		{{-- <a href="JavaScript:Void(0);" class="btn-view-pic">View photos</a> --}}
+		<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#view_image" data-toggle="tooltip" data-original-title="Share" class="btn-view-pic">View photos</a>
 	</div>
 	<!-- ============================ Hero Banner End ================================== -->
 	
@@ -50,10 +51,21 @@
 				<!-- property main detail -->
 				<div class="col-lg-8 col-md-12 col-sm-12">
 				
-					<div class="property_block_wrap style-2 p-4">
-						<div class="prt-detail-title-desc">
-							<span class="prt-types sale">For Sale</span>
-							<h3>
+					<div class="property_block_wrap style-2 p-4 pt-2">
+						
+						<div class="prt-detail-title-desc mb-4">
+							<div class="detaile-header d-flex justify-content-between align-item-baseline">
+								<span class="prt-types sale">{{$property->property_status}}</span>
+								<div class="lpc-right">
+									<a href="compare-property.html" data-toggle="tooltip" data-placement="top" title="Share this property">
+										<i class="ti-share"></i>
+									</a>
+									<a href="javascript:void(0);" data-toggle="tooltip" class="like_property" data-placement="top" title="Save this property"><i class="ti-heart"></i></a>
+								</div>
+							</div>
+							
+							
+							<h3 class="mt-3">
 								{{$property->property_title}}
 									In 
 									{{$property->properties_to_property_addresses->street_name}},
@@ -63,7 +75,7 @@
 								{{$property->properties_to_property_addresses->street_name}},
 								{{$property->properties_to_property_addresses->land_mark}}
 							</span>
-							<h3 class="prt-price-fix">
+							<h3 class="prt-price-fix red-color">
 								Rs {{$property->property_price}}<sub>/month</sub>
 							</h3>
 							<div class="list-fx-features">
@@ -326,183 +338,7 @@
 						
 					</div>
 					
-					<!-- Single Block Wrap -->
-					<div class="property_block_wrap style-2">
-						
-						<div class="property_block_wrap_header">
-							<a data-bs-toggle="collapse" data-parent="#nearby" data-bs-target="#clNine" aria-controls="clNine" href="javascript:void(0);" aria-expanded="true"><h4 class="property_block_title">Nearby</h4></a>
-						</div>
-						
-						<div id="clNine" class="panel-collapse collapse show" aria-expanded="true">
-							<div class="block-body">
-								
-								<!-- Schools -->
-								<div class="nearby-wrap">
-									<div class="nearby_header">
-										<div class="nearby_header_first">
-											<h5>Schools Around</h5>
-										</div>
-										<div class="nearby_header_last">
-											<div class="nearby_powerd">
-												Powerd by <img src="assets/img/edu.png" class="img-fluid" alt="" />
-											</div>
-										</div>
-									</div>
-									<div class="neary_section_list">
-									
-										<div class="neary_section">
-											<div class="neary_section_first">
-												<h4 class="nearby_place_title">Green Iseland School<small>(3.52 mi)</small></h4>
-											</div>
-											<div class="neary_section_last">
-												<div class="nearby_place_rate">
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star"></i>														
-												</div>
-												<small class="reviews-count">(421 Reviews)</small>
-											</div>
-										</div>
-										
-										<div class="neary_section">
-											<div class="neary_section_first">
-												<h4 class="nearby_place_title">Ragni Intermediate College<small>(0.52 mi)</small></h4>
-											</div>
-											<div class="neary_section_last">
-												<div class="nearby_place_rate">
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star-half filled"></i>														
-												</div>
-												<small class="reviews-count">(470 Reviews)</small>
-											</div>
-										</div>
-										
-										<div class="neary_section">
-											<div class="neary_section_first">
-												<h4 class="nearby_place_title">Rose Wood Primary Scool<small>(0.47 mi)</small></h4>
-											</div>
-											<div class="neary_section_last">
-												<div class="nearby_place_rate">
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star"></i>														
-												</div>
-												<small class="reviews-count">(204 Reviews)</small>
-											</div>
-										</div>
-										
-									</div>
-								</div>
-								
-								<!-- Hotel & Restaurant -->
-								<div class="nearby-wrap">
-									<div class="nearby_header">
-										<div class="nearby_header_first">
-											<h5>Food Around</h5>
-										</div>
-										<div class="nearby_header_last">
-											<div class="nearby_powerd">
-												Powerd by <img src="assets/img/food.png" class="img-fluid" alt="" />
-											</div>
-										</div>
-									</div>
-									<div class="neary_section_list">
-									
-										<div class="neary_section">
-											<div class="neary_section_first">
-												<h4 class="nearby_place_title">The Rise hotel<small>(2.42 mi)</small></h4>
-											</div>
-											<div class="neary_section_last">
-												<div class="nearby_place_rate">
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>														
-												</div>
-												<small class="reviews-count">(105 Reviews)</small>
-											</div>
-										</div>
-										
-										<div class="neary_section">
-											<div class="neary_section_first">
-												<h4 class="nearby_place_title">Blue Ocean Bar & Restaurant<small>(1.52 mi)</small></h4>
-											</div>
-											<div class="neary_section_last">
-												<div class="nearby_place_rate">
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star filled"></i>
-													<i class="fa fa-star"></i>														
-												</div>
-												<small class="reviews-count">(40 Reviews)</small>
-											</div>
-										</div>
-										
-									</div>
-								</div>
-								
-							</div>
-						</div>
-						
-					</div>
 					
-					<!-- Single Write a Review -->
-					<div class="property_block_wrap style-2">
-						
-						<div class="property_block_wrap_header">
-							<a data-bs-toggle="collapse" data-parent="#comment" data-bs-target="#clTen" aria-controls="clTen" href="javascript:void(0);" aria-expanded="true"><h4 class="property_block_title">Write a Review</h4></a>
-						</div>
-						
-						<div id="clTen" class="panel-collapse collapse show" aria-expanded="true">
-							<div class="block-body">
-								<form class="simple-form">
-									<div class="row">
-										
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<textarea class="form-control ht-80" placeholder="Messages"></textarea>
-											</div>
-										</div>
-										
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Property Title">
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Your Name">
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<input type="email" class="form-control" placeholder="Your Email">
-											</div>
-										</div>
-										
-										<div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<button class="btn btn-theme-light-2 rounded" type="submit">Submit Review</button>
-											</div>
-										</div>
-										
-									</div>
-								</form>
-							</div>
-						</div>
-						
-					</div>
 					
 				</div>
 				
@@ -510,19 +346,22 @@
 				<div class="col-lg-4 col-md-12 col-sm-12">
 					
 					<!-- Like And Share -->
-					<div class="like_share_wrap b-0">
+					<div class="like_share_wrap b-0" style="display: none">
 						<ul class="like_share_list">
 							@guest
 								<li>
 									<a href="JavaScript:Void(0);"  data-bs-toggle="modal" data-bs-target="#signup" class="btn btn-likes" data-toggle="tooltip" data-original-title="Share"><i class="fas fa-share"></i> Share</a>
 								</li>
+
 								{{-- <li>
 									
 									<button data-bs-toggle="modal" data-bs-target="#signup" type="submit" class="btn btn-outline-theme" style="width: 100%;border-radius: 0.4rem;">Apply</button>
 								</li> --}}
-								<li>
+								
+								{{-- <li>
 									<a href="JavaScript:Void(0);" data-bs-toggle="modal" data-bs-target="#signup" class="btn btn-likes" data-toggle="tooltip" data-original-title="Bookmark"><i class="fa fa-bookmark"></i> Bookmark</a>
-								</li>
+								</li> --}}
+
 								{{-- <li>
 									<a href="JavaScript:Void(0);" class="btn btn-likes" data-toggle="tooltip" data-original-title="Save" style="    background: rgba(249, 93, 2,0.1);
 									color: #f95d02 !important;
@@ -545,19 +384,19 @@
 						<!-- Agent Detail -->
 						<div class="sides-widget">
 							@guest
-								<div class="sides-widget-header">
-									<div class="sides-widget-details">
+								<div class="sides-widget-header red-bg">
+									<div class="sides-widget-details ">
 										<h4><a href="#" data-bs-toggle="modal" data-bs-target="#apply">Apply for rent</a></h4>
 										{{-- <span>Fill the below information</span> --}}
 									</div>
 									<div class="clearfix"></div>
 								</div>
 							@else 
-								<div class="sides-widget-header">
+								<div class="sides-widget-header red-bg">
 									<div class="agent-photo buyer_name_div">{{$abbName}}</div>
 									<div class="sides-widget-details">
 										<h4><a href="#">{{Auth::user()->name}}</a></h4>
-										<span><i class="lni-phone-handset"></i>(91) {{Auth::user()->phone}}</span>
+										<span class="text-white"><i class="lni-phone-handset"></i>(91) {{Auth::user()->phone}}</span>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -728,23 +567,24 @@
 	<!-- ============================ Property Detail End ================================== -->
 	
 	<!-- ============================ Call To Action ================================== -->
-	<section class="theme-bg call-to-act-wrap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					
-					<div class="call-to-act">
-						<div class="call-to-act-head">
-							<h3>Want to Become a Real Estate Agent?</h3>
-							<span>We'll help you to grow your career and growth.</span>
-						</div>
-						<a href="#" class="btn btn-call-to-act">SignUp Today</a>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</section>
+	@guest
+    <section class="theme-bg call-to-act-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">                   
+                    <div class="call-to-act">
+                        <div class="call-to-act-head">
+                            <h3 class="mb-0">Be a part of GoGoal</h3>
+                            <span class="text-center">#FulFillYourGoal</span>
+                        </div>
+                        <a href="{{route('pages.signin')}}" class="btn btn-call-to-act">Register Now</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    @endguest
 	<!-- ============================ Call To Action End ================================== -->
 
 
@@ -757,14 +597,14 @@
 					<div class="login-form">
 						<div class="row" style="margin-bottom: 20px">
 							<h4 class="text-center">
-								You are not signed in
+								You are not logged in
 							</h4>
 							<h6 class="text-center">
-								To share/bookmark this property please sign in first
+								To share/bookmark this property please logged in first
 							</h6>										
 						</div>
 						<a href="{{route('pages.signin')}}">
-							<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Sign In</button>				
+							<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Log In</button>				
 						</a>
 					</div>														
 				</div>
@@ -782,15 +622,81 @@
 					<div class="login-form">
 						<div class="row" style="margin-bottom: 20px">
 							<h4 class="text-center">
-								You are not signed in
+								You are not logged in
 							</h4>
 							<h6 class="text-center">
-								To apply this property please sign in first
+								To apply this property please log in first
 							</h6>										
 						</div>
 						<a href="{{route('pages.signin')}}">
-							<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Sign In</button>				
+							<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Log In</button>				
 						</a>
+					</div>														
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Modal -->
+
+	<!-- Sign Up Modal -->
+	<div class="modal fade view_image" id="view_image" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
+		<div class="modal-dialog" role="document" style="max-width: 1000px;">
+			<div class="modal-content" id="sign-up">
+				<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
+				<div class="modal-body">
+					<div class="block-wraps">
+						<div class="block-wraps-header">
+						
+							<div class="block-header">
+								<ul class="nav nav-tabs customize-tab" id="myTab" role="tablist">
+								  <li class="nav-item" role="presentation">
+									<a class="nav-link active" id="rental-tab" data-bs-toggle="tab" href="#rental" role="tab" aria-controls="rental" aria-selected="true">Image</a>
+								  </li>
+								  <li class="nav-item" role="presentation">
+									<a class="nav-link" id="sale-tab" data-bs-toggle="tab" href="#sale" role="tab" aria-controls="sale" aria-selected="false">Video</a>
+								  </li>
+								</ul>
+							</div>
+							
+							<div class="block-body p-0">
+								<div class="tab-content" id="myTabContent">								
+									<div class="tab-pane fade active show" id="rental" role="tabpanel" aria-labelledby="rental-tab">
+										<div class="block-body p-0">
+											<ul class="list-gallery-inline">
+												@if ($property->properties_to_images->count() > 0)
+													@foreach ($property->properties_to_images as $image)
+														<li>
+															<img src="{{asset('uplaods/'.$image->big_img)}}" class="img-fluid mx-auto" alt="" />
+														</li>
+													@endforeach			
+												@endif												
+											</ul>
+										</div>										
+									</div>
+									
+									<div class="tab-pane fade" id="sale" role="tabpanel" aria-labelledby="sale-tab">
+										<!-- row -->
+										<div class="row">
+											<!-- Single Property -->
+											<div class="col-lg-6 col-md-6 col-sm-12">
+												<div class="property-listing property-2">
+													
+													<div class="listing-img-wrapper">
+														<div class="list-img-slide">
+															<div class="clicks">
+																<div><img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt=""></div>
+															</div>
+														</div>
+													</div>													
+												</div>
+											</div>
+											<!-- End Single Property -->											
+										</div>
+										<!-- // row -->
+									</div>								  
+								</div>
+							</div>						
+						</div>
 					</div>														
 				</div>
 			</div>

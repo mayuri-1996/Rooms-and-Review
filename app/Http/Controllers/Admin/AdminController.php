@@ -156,6 +156,31 @@ class AdminController extends Controller
         return redirect()->route('admin.all.property');
     }
 
+    public function propertyDetails($id){
+        $others_feachures = OtherFeature::get();
+        $types = PropertyType::get();
+        $countries = Country::get();
+        $users =  PostPropertyRequest::with('post_property_requests_to_buyers')->where('is_active',0)->get();
+
+        $property = Property::
+                    with(
+                        'properties_to_buyers',
+                        'properties_to_property_to_other_features',
+                        'properties_to_property_addresses',
+                        'properties_to_images'
+                    )
+                    ->where('id', $id)
+                    ->first();
+        // dd($property);
+        return view('admin-panel.pages.properties.property_details')->with([
+            'others_feachures' => $others_feachures,
+            'types' => $types,
+            'countries' => $countries,
+            'users' => $users,
+            'property' => $property 
+        ]);
+    }
+
     public function allPropertyType(){
         $types = PropertyType::get();
         return view('admin-panel.pages.properties.all-property-type')->with([
@@ -225,6 +250,13 @@ class AdminController extends Controller
         $lists = PostPropertyRequest::with('post_property_requests_to_buyers')->where('is_active',0)->get();
         // dd($lists);
         return view('admin-panel.pages.post_property_request.list')->with([
+            'lists' => $lists
+        ]);
+    }
+
+    public function allApplyForRent(){
+        $lists = ApplyForRent::with('apply_for_rent_to_buyers')->where('is_active',0)->get();
+        return view('admin-panel.pages.apply_for_rent.list')->with([
             'lists' => $lists
         ]);
     }

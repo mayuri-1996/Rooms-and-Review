@@ -17,10 +17,12 @@ use App\Model\PropertyVideo;
 use App\Model\ApplyForRent;
 use App\Model\PostPropertyRequest;
 use Auth;
+use Session;
+use Illuminate\Support\Facades\Cookie;
 
 class PageController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         // dd(Auth::user());
         $random_properties = Property::
                     with(
@@ -29,12 +31,72 @@ class PageController extends Controller
                         'properties_to_property_addresses',
                         'properties_to_images'
                     )
+                    ->when($request->state_id != '', function ($query) use ($request) {
+                        $query->whereHas('properties_to_property_addresses', function($q)use ($request){
+                            $q->where('state', $request->state_id);
+                        });
+                    })
+                    ->when($request->city_id != '', function ($query) use ($request) {
+                        $query->whereHas('properties_to_property_addresses', function($q)use ($request){
+                            $q->where('city', $request->city_id);
+                        });
+                    })
                     ->get();
-        $states = Zone::get();
-        // dd($random_properties);
+
+        $property_by_location = array();
+
+        if(Auth::user()){
+            $property_by_location = Property::
+            with(
+                'properties_to_buyers',
+                'properties_to_property_to_other_features',
+                'properties_to_property_addresses',
+                'properties_to_images'
+            )
+            ->whereHas('properties_to_property_addresses', function ($q){
+                $q->where('state', Auth::user()->state)
+                ->where('city', Auth::user()->city);
+            })
+            ->get();
+        }
+        
+        $property_by_search = array();
+        if(!Auth::user()){
+            $state_id = request()->cookie('state_id');
+            $city_id = request()->cookie('city_id');
+            // dd($city_id);
+            $property_by_search = Property::
+            with(
+                'properties_to_buyers',
+                'properties_to_property_to_other_features',
+                'properties_to_property_addresses',
+                'properties_to_images'
+            )
+            ->when($city_id != null, function ($query) use ($city_id) {
+                $query->whereHas('properties_to_property_addresses', function($q)use ($city_id){
+                    $q->where('city', $city_id);
+                });
+            })
+            ->when($state_id != null, function ($query) use ($state_id) {
+                $query->whereHas('properties_to_property_addresses', function($q)use ($state_id){
+                    $q->where('state', $state_id);
+                });
+            })
+            ->take(3)
+            ->get();
+            
+        }
+        // dd(count($property_by_search));
+        
+        $states = Zone::with('zones_to_zone_cities')->get();
+        $cities = ZoneCity::with('zone_cities_to_zones')->get();
+        // dd($states);
         return view('pages.index')->with([
             'random_properties' => $random_properties,
-            'states' => $states
+            'states' => $states,
+            'cities' => $cities,
+            'property_by_location' => $property_by_location,
+            'property_by_search' => $property_by_search
         ]);
     }
     public function contact(){
@@ -80,11 +142,17 @@ class PageController extends Controller
     }
     public function propertydetails($id){
         $states = Zone::get();
-        $splitName = explode(' ', Auth::user()->name, 2); // Restricts it to only 2 values, for names like Billy Bob Jones
 
-        $first_name = $splitName[0];
-        $last_name = !empty($splitName[1]) ? $splitName[1] : '';
-        $abbName = $first_name[0].$last_name[0];
+        if(Auth::user()){
+            $splitName = explode(' ', Auth::user()->name, 2); // Restricts it to only 2 values, for names like Billy Bob Jones
+
+            $first_name = $splitName[0];
+            $last_name = !empty($splitName[1]) ? $splitName[1] : '';
+            $abbName = $first_name[0].$last_name[0];
+        }else{
+            $abbName = '';
+        }
+        
         $property = Property::
                     with(
                         'properties_to_buyers',
@@ -118,7 +186,14 @@ class PageController extends Controller
 
     public function propertylisting(Request $request){
         // dd(implode('%',str_split(str_replace(" ","",$request->street_name))));
-        
+        if(!Auth::user()){
+            // \Session::put('state_id', $request->state_id);
+            // \Session::put('city_id', $request->city_id);
+            Cookie::queue('state_id', $request->state_id, 45000);
+            Cookie::queue('city_id', $request->city_id, 45000);
+        }
+       
+        // dd(\Session::get('city_id'));
         $searched_properties = Property::
                     with(
                         'properties_to_buyers',
@@ -131,7 +206,7 @@ class PageController extends Controller
                             $q->where('city', $request->city_id);
                         });
                     })
-                    ->when($request->country_id != '', function ($query) use ($request) {
+                    ->when($request->state_id != '', function ($query) use ($request) {
                         $query->whereHas('properties_to_property_addresses', function($q)use ($request){
                             $q->where('state', $request->state_id);
                         });
@@ -175,8 +250,10 @@ class PageController extends Controller
     }
     public function register(){
         $states = Zone::get();
+        $cities = ZoneCity::with('zone_cities_to_zones')->get();
         return view('pages.register')->with([
-            'states' => $states
+            'states' => $states,
+            'cities' => $cities
         ]);
     }
     public function login(){

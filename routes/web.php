@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/all/property','Admin\AdminController@allProperty')->name('admin.all.property')->middleware('auth:admin');
     Route::get('/add/property','Admin\AdminController@addProperty')->name('admin.add.property')->middleware('auth:admin');
     Route::post('/add/property','Admin\AdminController@postProperty')->name('admin.post.property')->middleware('auth:admin');
+    Route::get('/property/details/{id}','Admin\AdminController@propertyDetails')->name('admin.details.property')->middleware('auth:admin');
 
     // Property Type
     Route::get('/all/property/type','Admin\AdminController@allPropertyType')->name('admin.all.propertytype')->middleware('auth:admin');
@@ -50,8 +51,10 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/all/post-property/request','Admin\AdminController@allPostPropertyRequest')->name('admin.all.post_property')->middleware('auth:admin');
 
-    Route::get('/get/states','Admin\AdminController@getStates')->name('admin.get.states')->middleware('auth:admin');
-    Route::get('/get/cities','Admin\AdminController@getCities')->name('admin.get.cities')->middleware('auth:admin');
+    Route::get('/all/apply/for-rent','Admin\AdminController@allApplyForRent')->name('admin.all.apply_for_rent')->middleware('auth:admin');
+
+    Route::get('/get/states','Admin\AdminController@getStates')->name('admin.get.states');
+    Route::get('/get/cities','Admin\AdminController@getCities')->name('admin.get.cities');
     Route::get('/get/user','Admin\AdminController@getUser')->name('admin.get.user')->middleware('auth:admin');
 
 });
@@ -70,7 +73,7 @@ Route::post('applyForRent','PageController@applyForRent')->name('pages.applyForR
 
 Route::get('propertylisting','PageController@propertylisting')->name('pages.propertylisting');
 
-Route::get('myprofile','PageController@myprofile')->name('pages.myprofile');
+Route::get('myprofile','PageController@myprofile')->name('pages.myprofile')->middleware('auth');
 Route::get('changepassword','PageController@changepassword')->name('pages.changepassword');
 Route::get('bookmarklisting','PageController@bookmarklisting')->name('pages.bookmarklisting');
 Route::get('blog','PageController@blog')->name('pages.blog');

@@ -51,6 +51,16 @@
 													<label>Phone</label>
 													<input type="text" class="form-control" name="phone">
 												</div>
+
+												<div class="form-group col-md-12">
+													<label>Prefered City</label>
+													<select id="location" class="form-control state" name="state_id">
+														<option value="">&nbsp;</option>
+														@foreach ($cities as $city)
+															<option value="{{$city->id}}">{{$city->city_name}}</option>
+														@endforeach  
+													</select>
+												</div>
 	
 												{{-- <div class="form-group col-lg-12 col-md-12">
 													<label>GDPR Agreement *</label>

@@ -13,7 +13,7 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12">
 							
-							<h2 class="ipt-title">Welcome!</h2>
+							<h2 class="ipt-title">Welcome! {{Auth::user()->name}}</h2>
 							<span class="ipn-subtitle">Welcome To Your Account</span>
 							
 						</div>
@@ -49,8 +49,8 @@
 										
 										<div class="d-user-avater">
 											<img src="assets/img/user-3.jpg" class="img-fluid avater" alt="">
-											<h4>Adam Harshvardhan</h4>
-											<span>Canada USA</span>
+											<h4>{{Auth::user()->name}}</h4>
+											<span>{{Auth::user()->city}} {{Auth::user()->state}}, {{Auth::user()->country}}</span>
 										</div>
 										
 										<div class="d-navigation">
@@ -59,9 +59,20 @@
 												<li class="active"><a href="my-profile.html"><i class="ti-user"></i>My Profile</a></li>
 												<li><a href="bookmark-list.html"><i class="ti-bookmark"></i>Bookmarked Listings</a></li>
 												<li><a href="my-property.html"><i class="ti-layers"></i>My Properties</a></li>
-												<li><a href="submit-property-dashboard.html"><i class="ti-pencil-alt"></i>Submit New Property</a></li>
-												<li><a href="change-password.html"><i class="ti-unlock"></i>Change Password</a></li>
-												<li><a href="#"><i class="ti-power-off"></i>Log Out</a></li>
+												<li><a href="{{route('pages.addproperty')}}"><i class="ti-pencil-alt"></i>Submit New Property</a></li>
+												{{-- <li><a href="change-password.html"><i class="ti-unlock"></i>Change Password</a></li> --}}
+												<li>
+													<a href="{{ route('buyer.auth.logout') }}"
+														onclick="event.preventDefault();
+														document.getElementById('logout-form').submit();"
+													>
+														<i class="ti-power-off"></i>
+														Log Out
+													</a>
+													<form id="logout-form" action="{{ route('buyer.auth.logout') }}" method="POST" style="display: none;">
+														{{ csrf_field() }}
+													</form>
+												</li>
 											</ul>
 										</div>
 										
@@ -82,12 +93,12 @@
 										
 											<div class="form-group col-md-6">
 												<label>Your Name</label>
-												<input type="text" class="form-control" value="Shaurya Preet">
+												<input type="text" class="form-control" value="{{Auth::user()->name}}">
 											</div>
 											
 											<div class="form-group col-md-6">
 												<label>Email</label>
-												<input type="email" class="form-control" value="preet77@gmail.com">
+												<input type="email" class="form-control" value="{{Auth::user()->email}}">
 											</div>
 											
 											<div class="form-group col-md-6">
@@ -97,27 +108,27 @@
 											
 											<div class="form-group col-md-6">
 												<label>Phone</label>
-												<input type="text" class="form-control" value="123 456 5847">
+												<input type="text" class="form-control" value="{{Auth::user()->phone}}">
 											</div>
 											
 											<div class="form-group col-md-6">
 												<label>Address</label>
-												<input type="text" class="form-control" value="522, Arizona, Canada">
+												<input type="text" class="form-control" value="{{Auth::user()->street_name}}">
 											</div>
 											
 											<div class="form-group col-md-6">
 												<label>City</label>
-												<input type="text" class="form-control" value="Montquebe">
+												<input type="text" class="form-control" value="{{Auth::user()->city}}">
 											</div>
 											
 											<div class="form-group col-md-6">
 												<label>State</label>
-												<input type="text" class="form-control" value="Canada">
+												<input type="text" class="form-control" value="{{Auth::user()->state}}">
 											</div>
 											
 											<div class="form-group col-md-6">
 												<label>Zip</label>
-												<input type="text" class="form-control" value="160052">
+												<input type="text" class="form-control" value="{{Auth::user()->pincode}}">
 											</div>
 											
 											<div class="form-group col-md-12">

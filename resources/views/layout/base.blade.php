@@ -51,6 +51,8 @@
 		 
 		<script src="{{asset('frontend/assets/js/custom.js')}}"></script>
 
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 		<script>
 			$('.country').select2({}).on("select2:select", function (e) {
 				var country_id = $(this).val();
@@ -86,6 +88,24 @@
 						})
 					}
 				});
+			});
+
+			$('.header-zone-search').on('click', function(){
+				console.log($('.header-zone-search').text())
+				// $('.search-state').val($('.header-zone-search-value').val());
+				var value = $('.header-zone-search-value').val();
+				$(".state").select2().select2('val',value);
+				
+			})
+
+			function setValue(city, state){
+				console.log(city, state)
+				$(".state").select2().select2('val',state);
+				$(".city").select2().select2('val',city);
+			}
+
+			$('.like_property').on('click', function(){
+				$('.like_property').css('background-color', '#E95F5F');
 			})
 
 		</script>
