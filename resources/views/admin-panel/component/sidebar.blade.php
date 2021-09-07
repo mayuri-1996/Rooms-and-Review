@@ -51,9 +51,35 @@
                     </ul>
                 </li>
 
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Properties</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Area Listing</span></a>
                     <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('admin.all.propertytype')}}">Country Lists</a></li>
+                        <li><a href="{{route('admin.all.propertytype')}}">State Lists</a></li>
+                    </ul>
+                </li>
+
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Post Property Request</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('admin.all.post_property')}}">Lists All Users</a></li>
+                    </ul>
+                </li>
+
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Apply For Rent</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('admin.all.apply_for_rent')}}">Lists All Users</a></li>
+                    </ul>
+                </li>
+
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Property</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('admin.all.propertytype')}}">Property Type</a></li>
                         <li><a href="{{route('admin.all.property')}}">Property Lists</a></li>
+                    </ul>
+                </li>
+
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Feachures</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('admin.all.otherfeachure')}}">Other Feachures</a></li>
                     </ul>
                 </li>
 

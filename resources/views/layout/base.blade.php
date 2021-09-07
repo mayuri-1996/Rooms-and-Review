@@ -50,6 +50,66 @@
 		<script src="{{asset('frontend/assets/js/imagesloaded.js')}}"></script>
 		 
 		<script src="{{asset('frontend/assets/js/custom.js')}}"></script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<script>
+			$('.country').select2({}).on("select2:select", function (e) {
+				var country_id = $(this).val();
+				$.ajax({
+					url: "{{route('admin.get.states')}}",
+					type: 'get',
+					dataType: 'json',
+					data: {country_id: country_id},
+					success: function(res){
+						console.log(res)
+						res.forEach(element => {
+							var states = `<option value="`+element.id+`">`+element.zone_name+`</option>`
+							$('.state').append(states)
+						});
+						
+					}
+				});
+			});
+
+			$('.state').select2({}).on("select2:select", function (e) {
+				// alert('ok')
+				var state_id = $(this).val();
+				$.ajax({
+					url: "{{route('admin.get.cities')}}",
+					type: 'get',
+					dataType: 'json',
+					data: {state_id: state_id},
+					success: function(res){
+						console.log(res)
+						res.forEach(element => {
+							var city = `<option value="`+element.id+`">`+element.city_name+`</option>`
+							$('.city').append(city);
+						})
+					}
+				});
+			});
+
+			$('.header-zone-search').on('click', function(){
+				console.log($('.header-zone-search').text())
+				// $('.search-state').val($('.header-zone-search-value').val());
+				var value = $('.header-zone-search-value').val();
+				$(".state").select2().select2('val',value);
+				
+			})
+
+			function setValue(city, state){
+				console.log(city, state)
+				$(".state").select2().select2('val',state);
+				$(".city").select2().select2('val',city);
+			}
+
+			$('.like_property').on('click', function(){
+				$('.like_property').css('background-color', '#E95F5F');
+			})
+
+		</script>
+		
 		<!-- ============================================================== -->
 		<!-- This page plugins -->
 		<!-- ============================================================== -->

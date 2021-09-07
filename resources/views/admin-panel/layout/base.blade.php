@@ -30,6 +30,8 @@
     <link href="{{asset('adminPanel/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
     <link href="{{asset('adminPanel/assets/plugins/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
 
+    <link rel="stylesheet" href="{{asset('adminPanel/assets/plugins/dropify/dist/css/dropify.min.css')}}">
+
 
     <style>
         .select2-container--default .select2-selection--single {
@@ -169,7 +171,51 @@
 
     <script src="{{asset('adminPanel/assets/plugins/select2/dist/js/select2.full.min.js')}}" type="text/javascript"></script>
     <script>
-        $(".select2").select2();
+        // $(".select2").select2();
+    </script>
+
+    <script src="{{asset('adminPanel/assets/plugins/dropify/dist/js/dropify.min.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            // Basic
+            $('.dropify').dropify();
+
+            // Translated
+            $('.dropify-fr').dropify({
+                messages: {
+                    default: 'Glissez-déposez un fichier ici ou cliquez',
+                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                    remove: 'Supprimer',
+                    error: 'Désolé, le fichier trop volumineux'
+                }
+            });
+
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function(event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function(event, element) {
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function(event, element) {
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function(e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
     </script>
 
 </body>

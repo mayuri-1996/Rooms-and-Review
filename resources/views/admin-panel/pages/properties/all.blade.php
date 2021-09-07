@@ -37,51 +37,45 @@
                         <table id="myTable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email Id</th>
+                                    <th>Title</th>
+                                    <th>Location</th>
+                                    <th>Owner</th>
                                     <th>Phone No.</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-rounded  btn-outline-info"> 
-                                            <i class="mdi mdi-pencil-box"></i> 
-                                            View details
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td class="text-center">
-                                        <i class="mdi mdi-dots-vertical"></i>
-                                        <button type="button" class="btn btn-rounded  btn-outline-info"> 
-                                            <i class="mdi mdi-pencil-box"></i> 
-                                            View details
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-rounded  btn-outline-info"> 
-                                            <i class="mdi mdi-pencil-box"></i> 
-                                            View details
-                                        </button>
-                                    </td>
-                                </tr>   
+                                @foreach ($properties as $property)
+                                    <tr>
+                                        
+                                        <td>{{$property->property_title}}</td>
+                                        <td>
+                                            {{$property->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}},
+                                            {{$property->properties_to_property_addresses->property_addresses_to_zones->zone_name}}
+                                        </td>
+                                        <td>{{$property->properties_to_buyers->name}}</td>
+                                        <td>{{$property->properties_to_buyers->phone}}</td>
+                                        <td>
+                                            @if ($property->is_active == 1)
+                                                Active
+                                            @else
+                                                Not Active
+                                            @endif
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{route('admin.details.property',$property->id)}}">
+                                                <button type="button" class="btn btn-rounded  btn-outline-info"> 
+                                                    <i class="mdi mdi-pencil-box"></i> 
+                                                    View details
+                                                </button>
+                                            </a>
+                                            
+                                        </td>
+                                                                               
+                                    </tr>
+                                @endforeach
+                                   
                             </tbody>
                         </table>
                     </div>

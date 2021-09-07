@@ -133,33 +133,45 @@
 						</div>
 						<div class="nav-menus-wrapper" style="transition-property: none;">
 							<ul class="nav-menu">
-							
-								 <!-- <li class="active"> -->
-									 <li><a href="{{route('pages.index')}}">Home<span class="submenu-indicator"></span></a> 
-								
-								</li>
-
-								<li><a href="{{route('pages.about')}}">About</a></li>
-								<li><a href="JavaScript:Void(0);">Property<span class="submenu-indicator"></span></a>
+								<li>
+									<a href="JavaScript:Void(0);" class="flag-menu">
+										<img src="{{asset('india.png')}}">
+										<span class="submenu-indicator"></span>
+									</a>
 									<ul class="nav-dropdown nav-submenu">
-										<li><a href="{{route('pages.myproperty')}}">My Property<span class="submenu-indicator"></span></a></li>
-										<li><a href="#">Apply Property<span class="submenu-indicator"></span></a></li>
-										<li><a href="{{route('pages.propertylisting')}}">Property Listing<span class="submenu-indicator"></span></a></li>
-										<!-- <li><a href="{{route('pages.propertydetails')}}">Property Details</a></li> -->
+										<li style="margin-bottom: 20px;">
+											<i class="icofont-google-map"></i> India
+										</li>
+										@foreach ($states as $state)
+										<li>
+											<a href="JavaScript:Void(0);"
+											@if ($state->zones_to_zone_cities->count() == 0)
+												onclick="setValue('','{{$state->id}}')"
+											@endif
+											>{{$state->zone_name}}<span class="submenu-indicator"></span></a>
+											@if ($state->zones_to_zone_cities->count() > 0)
+												<ul class="nav-dropdown nav-submenu">
+													@foreach ($state->zones_to_zone_cities as $city)
+														<li><a href="JavaScript:Void(0);" onclick="setValue('{{$city->id}}','{{$state->id}}')">{{$city->city_name}}</a></li> 
+													@endforeach                                													
+												</ul>
+											@endif											
+										</li>
+										@endforeach
 									</ul>
 								</li>
 
 								
-								<li><a href="{{route('pages.blog')}}">Blogs</a></li>
+								{{-- <li><a href="{{route('pages.blog')}}">Blogs</a></li> --}}
 
-								<li><a href="{{route('pages.contact')}}">Contacts</a></li>
+								{{-- <li><a href="{{route('pages.contact')}}">Contacts</a></li> --}}
 								<!-- <li><a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#signup">Sign Up</a></li> -->
 								
 							</ul>
 							
 							<ul class="nav-menu nav-menu-social align-to-right">
 
-								@guest
+								{{-- @guest
 									<li>
 										<a href="{{route('pages.signin')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
 									</li>
@@ -168,7 +180,7 @@
 										<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Add Property</a>
 									</li>
 								@endguest
-								
+								 --}}
 								
 								<!-- <li>
 									<a href="{{route('pages.signin')}}" data-bs-toggle="modal" data-bs-target="#login" class="text-success">
@@ -177,7 +189,129 @@
 								<!-- <li class="add-listing theme-bg">
 									<a href="submit-property.html">Add Property</a>
 								</li> -->
+
 								@guest
+								<li>
+									<a href="JavaScript:Void(0);" class="mr-3" style="margin-right: 15px;">
+
+										Login<span class="submenu-indicator"></span>
+									</a>
+
+									{{-- <a href="JavaScript:Void(0);" style="padding: 18px 12px;">
+										<button type="submit" class="btn btn-outline-theme">Hello, Mayuri Roy</button>
+									</a> --}}
+
+									<ul class="nav-dropdown nav-submenu" style="right: auto !important;width: 300px;white-space: initial;">
+										<li>
+											<div class="row mt-2">
+												{{-- <div class="col-md-6">
+													<p style="padding-left: 10px;">
+														My Activities 
+													</p>
+												</div>
+												<div class="col-md-6 pl-0" style="padding-left: 0;">
+													<hr>
+												</div> --}}
+												<div >
+													<blockquote style="font-size: 15px">
+														<span>"Life is not a problem to be solved, but a reality to be experienced."</span>
+														<span class="quote-auther"><br>– Soren Kierkegaard</span>
+													</blockquote>
+												</div>
+											</div>											
+										</li>
+										
+										<li>
+											<a href="{{route('pages.signup')}}">
+												<button type="submit" class="btn btn-theme btn-rounded w-100 mt-4" style="padding-top: 8px;padding-bottom: 8px;">Login</button>
+											</a>
+											
+											
+										</li>
+										<li>
+											<p class="text-center">
+												New to GoGoal? 
+												<a href="{{route('pages.signin')}}"><strong>Sign Up</strong></a>
+											</p>
+										</li>
+									</ul>
+								</li>
+
+								@else 
+
+								<li>
+									<a href="JavaScript:Void(0);" class="hide-indicator" style="padding: 18px 12px;">
+										<button type="submit" class="btn btn-outline-theme" style="    border-radius: 50px;
+										padding-top: 8px;
+										padding-bottom: 8px;">Hello, {{Auth::user()->name}}</button>
+									</a>
+
+									<ul class="nav-dropdown nav-submenu" style="right: auto !important;width: 300px;white-space: initial;">
+										<li>
+											<div class="row mt-2">
+												{{-- <div class="col-md-6">
+													<p style="padding-left: 10px;">
+														My Activities 
+													</p>
+												</div>
+												<div class="col-md-6 pl-0" style="padding-left: 0;">
+													<hr>
+												</div> --}}
+												<div >
+													<blockquote style="font-size: 15px">
+														<span>
+															"The way I see it, if you want the rainbow, you gotta put up with the rain."
+														</span>
+														<span class="quote-auther"><br>– Dolly Parton</span>
+													</blockquote>
+												</div>
+											</div>											
+										</li>
+										{{-- <li>
+											<a href="{{route('pages.myproperty')}}">Contacted Properties</a>
+										</li>
+										<li>
+											<a href="{{route('pages.myproperty')}}">Bookmarked Properties</a>
+										</li>
+										<li>
+											<a href="{{route('pages.myprofile')}}">My Profile<span class="submenu-indicator"></span></a>
+										</li> --}}
+										<li>
+											
+											<a href="{{ route('buyer.auth.logout') }}"
+											onclick="event.preventDefault();
+																document.getElementById('logout-form').submit();">
+												
+												<button type="submit" class="btn btn-theme btn-rounded w-100 mt-4" style="padding-top: 8px;padding-bottom: 8px;"> <i class="fa fa-power-off"></i> Logout</button> 
+											</a>
+											<form id="logout-form" action="{{ route('buyer.auth.logout') }}" method="POST" style="display: none;">
+												{{ csrf_field() }}
+											</form>
+										</li>
+									</ul>
+								</li>
+								@endguest
+
+								@guest
+									<li class="post-property-btn mb-1">
+										<a href="{{route('pages.signin')}}" class="btn btn-call-to-act btn-outline-theme" style="padding-top: 8px;
+										padding-bottom: 8px;">Post Property</a>										
+									</li>
+								@else 
+									{{-- <li>
+										<a href="{{route('pages.addproperty')}}" class="text-success"><img src="{{asset('frontend/assets/img/submit.svg')}}" width="20" alt="" class="mr-2" />Post Property</a>
+									</li> --}}
+									<li class="post-property-btn mb-1">
+										<a href="{{route('pages.addproperty')}}" class="btn btn-call-to-act btn-outline-theme" style="padding-top: 8px;
+										padding-bottom: 8px;">Post Property</a>										
+									</li>
+									
+								@endguest
+
+
+								
+								
+								{{-- @guest
 									<li class="add-listing blue">
 										<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />Sign In</a>
 									</li>
@@ -185,12 +319,115 @@
 									<li class="add-listing blue">
 										<a href="{{route('pages.signin')}}"><img src="{{asset('frontend/assets/img/user-light.svg')}}" width="12" alt="" class="mr-2" />{{Auth::user()->name}}</a>
 									</li>
-								@endguest
+								@endguest --}}
+
+								
+
+								<li id="show">
+									<a href="" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#sidebar_right">
+										<i class="fa fa-bars"></i></a>
+									{{-- <i class="fa fa-bars" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#signup"></i> --}}
+								</li>
                             	
 							</ul>
 						</div>
 					</nav>
 				</div>
 			</div>
-			<!-- End Navigation -->
+
+
+			<!-- Sign Up Modal -->
+			<div class="modal right fade sidebar-right" id="sidebar_right" tabindex="-1" role="dialog" aria-labelledby="sidebar_right" aria-hidden="true">
+				<div class="modal-dialog sidebar-right-modal-dialog modal-dialog-centered login-pop-form" role="document" style="max-width: 350px;">
+					<div class="modal-content sidebar-right-modal-content" id="sign-up">
+						<div class="modal-header">
+							<h5 class="modal-title">
+								<a href="{{route('pages.signup')}}">Login</a> / <a href="{{route('pages.signin')}}">Register</a>
+							</h5>
+							<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
+						</div>
+						
+						<div class="modal-body p-0">
+							{{-- <ul class="nav-menu">
+								<li>Post Your Property</li>
+								<li>Explore Our Services</li>
+							</ul> --}}
+							<ul class="list-group">
+								<li class="list-group-item" style="border-left: none;
+								border-top: none;
+								border-right: none;">Post Your Property</li>
+								<li class="list-group-item" style="border-left: none;
+								border-top: none;
+								border-right: none;">Explore Our Services</li>
+								<li class="mt-2 pl-3 pr-3">
+									<div class="form-group borders">
+										<div class="input-with-icon">
+											<input type="text" name="street_name" class="form-control" placeholder="Search by property code">
+											<i class="ti-search"></i>
+										</div>
+									</div>
+								</li>
+							  </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+			{{-- <div id="show_div" style="display: none">
+				@include('component.right-sidebar')
+			</div> --}}
+
+			<script src="{{asset('frontend/assets/js/jquery.min.js')}}"></script>
+			<script>
+				$('#show').on('click', function(){
+					$('#show_div').show();
+				});
+			</script>
+
+			<style>
+				.sidebar-right.right.fade .sidebar-right-modal-dialog {
+						right: 0%;
+						-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+						-moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+							-o-transition: opacity 0.3s linear, right 0.3s ease-out;
+								transition: opacity 0.3s linear, right 0.3s ease-out;
+					}
+					
+					/* .sidebar-right.right.fade.in .idebar-right-modal-dialog {
+						left: 39%;
+					} */
+				.sidebar-right {
+					left: 39%;
+				}
+				.sidebar-right .sidebar-right-modal-dialog {
+					margin-top: 0 !important;
+					-webkit-transform: translate3d(0%, 0, 0);
+					/* -ms-transform: translate3d(0%, 0, 0);
+					-o-transform: translate3d(0%, 0, 0);
+						transform: translate3d(0%, 0, 0); */
+				}
+				/* ..sidebar-rightal.fade .sidebar-right-modal-dialog {
+					-webkit-transform: translate3d(25%, 0, 0);
+					transform: translate3d(25%, 0, 0);
+				} */
+				/* @media (min-width: 576px)
+				.sidebar-right .modal-dialog-centered {
+					min-height: calc(100vh - 18.5rem);
+				} */
+				@media (min-width: 576px){
+					.sidebar-right .sidebar-right-modal-dialog  {
+						max-width: 500px;
+						margin: 0rem auto;
+					}
+					.sidebar-right .sidebar-right-modal-content{
+						height: calc(100vh - 0rem);
+					}
+				}
+				
+			</style>
+
+			
+
+			
+
 

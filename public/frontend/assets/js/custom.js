@@ -343,7 +343,7 @@ $(function() {
 	
 	// Select Property Types
 	$('#ptypes').select2({
-		placeholder: "Show All",
+		placeholder: "Select Any State",
 		allowClear: true
 	});
 	
@@ -391,9 +391,16 @@ $(function() {
 	
 	// Select Town
 	$('#location').select2({
-		placeholder: "Shaow All",
+		placeholder: "Select Any City",
 		allowClear: true
 	});
+
+	// Select Country
+	$('#country').select2({
+		placeholder: "Select Any Country",
+		allowClear: true
+	});
+
 	
 	// Select Cities
 	$('#cities').select2({
@@ -427,6 +434,7 @@ $(function() {
 	
 	// Home Slider
 	$('.home-slider').slick({
+		
 	  centerMode:false,
 	  slidesToShow:1,
 	  responsive: [
@@ -450,7 +458,7 @@ $(function() {
 	$('.click').slick({
 	  slidesToShow:1,
 	  slidesToScroll: 1,
-	  autoplay:false,
+	  autoplay:true,
 	  autoplaySpeed: 2000,
 	});
 	
