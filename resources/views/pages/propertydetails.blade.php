@@ -60,20 +60,38 @@
 									<a href="compare-property.html" data-toggle="tooltip" data-placement="top" title="Share this property">
 										<i class="ti-share"></i>
 									</a>
-									<a href="javascript:void(0);" data-toggle="tooltip" class="like_property" data-placement="top" title="Save this property"><i class="ti-heart"></i></a>
+									@guest
+										<a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#signup"title="Save this property"><i class="ti-heart"></i></a>
+									@else 
+										@if ($is_liked == 1)
+											{{-- <div class="div_append"> --}}
+												<a href="javascript:void(0);" data-toggle="tooltip" data-property-id="{{$property->id}}" class="dislike_property" data-is-liked="0" id="property_dislike" data-placement="top" title="Save this property"
+													style=""
+												><i class="ti-heart"></i></a>
+											{{-- </div> --}}
+											
+										@else 
+											{{-- <div class="div_append"> --}}
+												<a href="javascript:void(0);" data-toggle="tooltip" data-property-id="{{$property->id}}" class="like_property" id="property_liked" data-is-liked="1" data-placement="top" title="Save this property"><i class="ti-heart"></i></a>
+											{{-- </div> --}}
+											
+										@endif										
+									@endguest
 								</div>
 							</div>
 							
 							
 							<h3 class="mt-3">
 								{{$property->property_title}}
-									In 
+									{{-- In 
 									{{$property->properties_to_property_addresses->street_name}},
-									{{$property->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}}
+									{{$property->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}} --}}
 							</h3>
 							<span><i class="lni-map-marker"></i>
-								{{$property->properties_to_property_addresses->street_name}},
-								{{$property->properties_to_property_addresses->land_mark}}
+								{{$property->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}}.
+								{{$property->properties_to_property_addresses->property_addresses_to_zones->zone_name}}
+								{{-- {{$property->properties_to_property_addresses->street_name}},
+								{{$property->properties_to_property_addresses->land_mark}} --}}
 							</span>
 							<h3 class="prt-price-fix red-color">
 								Rs {{$property->property_price}}<sub>/month</sub>
@@ -337,9 +355,7 @@
 						</div>
 						
 					</div>
-					
-					
-					
+			
 				</div>
 				
 				<!-- property Sidebar -->
@@ -392,34 +408,52 @@
 									<div class="clearfix"></div>
 								</div>
 							@else 
-								<div class="sides-widget-header red-bg">
-									<div class="agent-photo buyer_name_div">{{$abbName}}</div>
-									<div class="sides-widget-details">
-										<h4><a href="#">{{Auth::user()->name}}</a></h4>
-										<span class="text-white"><i class="lni-phone-handset"></i>(91) {{Auth::user()->phone}}</span>
+								@if ($is_applied_for_rent)
+									<div class="sides-widget-header red-bg d-block">
+										<div class="sides-widget-details">
+											<p>
+												You have already applied this property. To see the status click one the below button.
+											</p>
+										</div>
+										<div class="clearfix"></div>
+										<button type="button" class="btn btn-black btn-md rounded full-width apply-rent-btn mt-3">
+											See Status
+										</button>
 									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="sides-widget-body simple-form">
-									<form action="{{route('pages.applyForRent')}}" method="POST">
-										@csrf
-										<input type="hidden" name="property_id" value="{{$property->id}}">
-										<div class="form-group">
-											<label>Email</label>
-											<input type="email" class="form-control" name="email" placeholder="Your Email" readonly value="{{Auth::user()->email}}">
-										</div>
-										<div class="form-group">
-											<label>Phone No.</label>
-											<input type="text" class="form-control" name="phone" placeholder="Your Phone" readonly value="{{Auth::user()->phone}}">
-										</div>
-										<div class="form-group">
-											<label>Description</label>
-											<textarea class="form-control" name="description">I'm interested in this property.</textarea>
-										</div>
-										<button type="submit" class="btn btn-black btn-md rounded full-width">Apply for rent</button>
-									</form>
 									
-								</div>
+								@else
+									<div class="sides-widget-header red-bg">
+										<div class="agent-photo buyer_name_div">{{$abbName}}</div>
+										<div class="sides-widget-details">
+											<h4><a href="#">{{Auth::user()->name}}</a></h4>
+											<span class="text-white"><i class="lni-phone-handset"></i>(91) {{Auth::user()->phone}}</span>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<div class="sides-widget-body simple-form">
+											
+										<form class="apply-rent-form">
+											{{-- <form action="{{route('pages.applyForRent')}}" method="POST"> --}}
+											{{-- @csrf --}}
+											<input type="hidden" name="property_id" value="{{$property->id}}">
+											<div class="form-group">
+												<label>Email</label>
+												<input type="email" class="form-control" name="email" placeholder="Your Email" readonly value="{{Auth::user()->email}}">
+											</div>
+											<div class="form-group">
+												<label>Phone No.</label>
+												<input type="text" class="form-control" name="phone" placeholder="Your Phone" readonly value="{{Auth::user()->phone}}">
+											</div>
+											<div class="form-group">
+												<label>Description</label>
+												<textarea class="form-control" name="description">I'm interested in this property.</textarea>
+											</div>
+											<button type="button" class="btn btn-black btn-md rounded full-width apply-rent-btn">Apply for rent</button>
+										</form>	
+																	
+									</div>
+								@endif
+								
 							@endguest
 							
 							
@@ -600,10 +634,10 @@
 								You are not logged in
 							</h4>
 							<h6 class="text-center">
-								To share/bookmark this property please logged in first
+								To like this property please logged in first
 							</h6>										
 						</div>
-						<a href="{{route('pages.signin')}}">
+						<a href="{{route('pages.signup')}}">
 							<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Log In</button>				
 						</a>
 					</div>														
@@ -628,7 +662,7 @@
 								To apply this property please log in first
 							</h6>										
 						</div>
-						<a href="{{route('pages.signin')}}">
+						<a href="{{route('pages.signup')}}">
 							<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Log In</button>				
 						</a>
 					</div>														
@@ -638,7 +672,7 @@
 	</div>
 	<!-- End Modal -->
 
-	<!-- Sign Up Modal -->
+	<!-- Image/Video Show Modal -->
 	<div class="modal fade view_image" id="view_image" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
 		<div class="modal-dialog" role="document" style="max-width: 1000px;">
 			<div class="modal-content" id="sign-up">

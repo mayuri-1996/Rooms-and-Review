@@ -318,7 +318,7 @@
             @endsection --}}
 
 
-			@extends('layout.base')
+@extends('layout.base')
 @section('content')
 
 	<section class="bg-light pt-3 pb-3">
@@ -328,13 +328,32 @@
 				
 				<!-- Submit Form -->
 				<div class="col-md-12 col-md-12">
+					@if(session()->has('message'))
+						<script type="text/javascript">
+							$(document).ready(function() {						
+								swal({
+									html: true,
+									title: "Success!",
+									text: '"Thank you choosing GoGoal. We will be happy to give in our best service.<span class="bold-800">( We will contact you within 24 hours)</span>."',
+									type: "success",
+									confirmButtonText: "OK"
+								},function(isConfirm){
+									if (isConfirm){
+										window.location.href = '{{route("pages.index")}}';
+									} 
+								});
+							});
+						</script>
+					@endif
 				
 					<div class="submit-page p-0">
-						<div class="form-submit">	
+						<div class="form-submit add-property">	
 							
 							<div class="submit-section">
 								<div class="row">
-									<div class="col-md-6 bg-img p-0">
+								
+
+									{{-- <div class="col-md-6 bg-img p-0">
 										<div class="w-100 h-100 register-left-col">
 											<h3 class="text-white">
 												Things you can enjoy with GoGoal
@@ -345,52 +364,55 @@
 												<li>Search rooms all over the country.</li>
 											</ul>
 										</div>
-									</div>
-									<div class="col-md-6">
+									</div> --}}
+									<div class="col-md-12">
 										<div class="p-20">
+											@if ($errors->any())
+												<div class="alert alert-danger">
+													<ul>
+														@foreach ($errors->all() as $error)
+															<li>{{ $error }}</li>
+														@endforeach
+													</ul>
+												</div>
+											@endif
 											<h3>Post Property for Free</h3>
-											<form action="{{route('pages.post.addproperty')}}" method="post">
+											{{-- <form class="post-property"> --}}
+											<form action="{{route('pages.post.addproperty')}}" method="post" enctype="multipart/form-data">
 												@csrf
 												<div class="form-group col-md-12">
-													<label>
-														Full Name
-													</label>
-													<input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" readonly>
-												</div>
-	
-												<div class="form-group col-md-12">
-													<label>Email</label>
-													<input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" readonly>
-												</div>
-	
-												<div class="form-group col-md-12">
-													<label>Phone</label>
-													<input type="text" class="form-control" name="phone" value="{{Auth::user()->phone}}" readonly>
-												</div>
-
-												<div class="form-group col-md-12">
-													<label>Address</label>
-													<textarea class="form-control" name="address" rows="5"></textarea>
-												</div>
-
-												{{-- <div class="form-group col-md-12">
 													<div class="row">
-														<div class="form-group col-md-4">
-															<label>Land Mark</label>
-															<input type="text" class="form-control" name="phone" value="{{Auth::user()->land_mark}}">
+														<div class="form-group col-md-6">
+															<label>
+																Full Name
+															</label>
+															<input type="text" class="form-control" name="name" value="{{Auth::user()->name}}" readonly>
 														</div>
-														<div class="form-group col-md-8">
-															<label>Address</label>
-															<input type="text" class="form-control" name="phone" value="{{Auth::user()->street_name}}">
+														<div class="form-group col-md-6">
+															<label>Email</label>
+															<input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" readonly>
 														</div>
 													</div>													
-												</div> --}}
+												</div>
 
-												{{-- <div class="form-group col-md-12">
+												<div class="form-group col-md-12">
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label>Phone No.</label>
+															<input type="text" class="form-control" name="phone" value="{{Auth::user()->phone}}" readonly>
+														</div>
+														<div class="form-group col-md-6">
+															<label>Alternate Phone No.</label>
+															<input type="text" class="form-control" value="{{ old('alt_phone')}}" name="alt_phone">
+														</div>
+													</div>
+												</div>
+	
+												<div class="form-group col-md-12">
 													<div class="row">
 														<div class="form-group col-md-6">
 															<label>Country</label>
-															<select id="country" class="form-control country" name="country_id">
+															<select id="country" class="form-control country add-property-control" name="country_id">
 																<option value="">&nbsp;</option>
 																@foreach ($countries as $country)
 																	<option value="{{$country->id}}">{{$country->name}}</option>
@@ -399,14 +421,76 @@
 														</div>
 														<div class="form-group col-md-6">
 															<label>State</label>
-															<select id="ptypes" class="form-control state" name="state_id">
+															<select id="ptypes" class="form-control state add-property-control" name="state_id">
 																<option value="">&nbsp;</option>
 															</select>
 														</div>
 													</div>													
-												</div> --}}
-												
-	
+												</div>
+
+												<div class="form-group col-md-12">
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label>City</label>
+															<select id="location" class="form-control add-property-control city" name="city_id">
+																<option value="">&nbsp;</option>  
+																                                    
+															</select>
+														</div>
+														<div class="form-group col-md-6">
+															<label>Land Mark</label>
+															<input type="text" class="form-control" value="{{old('land_mark')}}" name="land_mark">
+														</div>
+													</div>													
+												</div> 
+
+												<div class="form-group col-md-12">
+													<label>Address</label>
+													<textarea class="form-control h-auto" name="address" rows="5">{{old('address')}}</textarea>
+												</div>
+
+												<div class="property_block_wrap style-2 mb-1">
+						
+													<div class="property_block_wrap_header mpl-0">
+														<a data-bs-toggle="collapse" data-parent="#clSev"  data-bs-target="#clSev" aria-controls="clOne" href="javascript:void(0);" aria-expanded="true" class="collapsed"><h6 class="property_block_title font-size-14">Upload Image</h6></a>
+													</div>
+													
+													<div id="clSev" class="panel-collapse collapse" aria-expanded="true">
+														<div class="block-body">
+															<div class="form-group col-md-12">
+																<div class="row">
+																	<div class="form-group col-md-6">
+																		<label>Apartment's Front Image</label>
+																		<input type="file" name="front_image" class="form-control front_image">
+																	</div>
+																	<div class="form-group col-md-6">
+																		<label>Room Image</label>
+																		<input type="file" name="room_image" class="form-control room_image">
+																	</div>
+																</div>													
+															</div> 
+														</div>
+													</div>
+													
+												</div>
+
+												<div class="property_block_wrap style-2">
+						
+													<div class="property_block_wrap_header mpl-0">
+														<a data-bs-toggle="collapse" data-parent="#vid"  data-bs-target="#vid" aria-controls="clOne" href="javascript:void(0);" aria-expanded="true" class="collapsed"><h6 class="property_block_title font-size-14">Upload Video</h6></a>
+													</div>
+													
+													<div id="vid" class="panel-collapse collapse" aria-expanded="true">
+														<div class="block-body">
+															<div class="form-group col-md-6">
+																<label>Room Video</label>
+																<input type="file" id="pvideo" name="room_video" class="form-control video">
+															</div>
+														</div>
+													</div>
+													
+												</div>
+
 												<div class="form-group col-lg-12 col-md-12">
 													<label>GoGoal Agreement *</label>
 													<ul class="no-ul-list">
@@ -418,9 +502,9 @@
 														</li>
 													</ul>
 												</div>
-											
+
 												<div class="form-group col-lg-12 col-md-12">
-													<button class="btn btn-theme-light-2 rounded w-100 property-submit-btn" type="submit" disabled>I Want to Post</button>
+													<button class="btn btn-theme-light-2 rounded w-100 property-submit-btn" type="submit" disabled>Request to Post</button>
 												</div>
 											</form>
 										</div>

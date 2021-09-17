@@ -19,6 +19,7 @@ use App\Model\Image;
 use App\Model\PropertyVideo;
 use App\Model\ApplyForRent;
 use App\Model\PostPropertyRequest;
+use App\Model\LikedProperty;
 use Auth;
 use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
@@ -247,10 +248,21 @@ class AdminController extends Controller
 
     public function allPostPropertyRequest(){
         // dd(Auth::user());
-        $lists = PostPropertyRequest::with('post_property_requests_to_buyers')->where('is_active',0)->get();
+        $lists = PostPropertyRequest::with('post_property_requests_to_buyers', 'post_property_requests_to_zone_cities')
+        ->where('is_active',0)->get();
         // dd($lists);
         return view('admin-panel.pages.post_property_request.list')->with([
             'lists' => $lists
+        ]);
+    }
+    public function detailPostPropertyRequest(Request $request){
+        $details = PostPropertyRequest::with('post_property_requests_to_buyers', 'post_property_requests_to_zone_cities')
+                ->where('is_active',0)
+                ->where('id',$request->detailed_data)
+                ->first();
+        // dd( $details);
+        return view('admin-panel.pages.post_property_request.detail')->with([
+            'details' => $details
         ]);
     }
 

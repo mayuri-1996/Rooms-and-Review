@@ -11980,3 +11980,33 @@ a.blue2-theme {
 .red-color{
     color: #E95F5F;
 }
+.detaile-header .lpc-right .dislike_property{
+    background: #e95f5f;
+}
+.last-visited-div{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    background: #E95F5F;
+    box-shadow: 0px 0px 0px 7px #e95f5fd9;
+    color: white;
+    font-size: 12px;
+}
+.bold-800{
+    font-weight: 800;
+}
+
+.property_block_wrap.style-2 .mpl-0{
+    padding-left: 0;
+}
+.font-size-14{
+    font-size: 14px;
+}
+
+.add-property .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 40px;
+}
+.add-property .select2-container--default .select2-selection--single{
+    height: 40px;
+}
+

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Admin;
 
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -41,6 +42,8 @@ class AdminController extends Controller
         $admins->email = $request->email;
         $admins->password = bcrypt($request->password);
         $admins->save();
+
+       
         return redirect()->route('admin.auth.login');
     }
 

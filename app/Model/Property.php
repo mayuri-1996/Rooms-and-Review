@@ -26,5 +26,9 @@ class Property extends Model
         return $this->hasOne('App\Model\PropertyType', 'id', 'property_type_id');
     }
 
+    public function properties_to_search_histories(){
+        return $this->hasOne('App\Model\SearchHistory','property_id','id');
+    }
+
     
 }

@@ -50,6 +50,7 @@ Route::prefix('admin')->group(function () {
 
 
     Route::get('/all/post-property/request','Admin\AdminController@allPostPropertyRequest')->name('admin.all.post_property')->middleware('auth:admin');
+    Route::get('/detail/post-property/request','Admin\AdminController@detailPostPropertyRequest')->name('admin.detail.post_property')->middleware('auth:admin');
 
     Route::get('/all/apply/for-rent','Admin\AdminController@allApplyForRent')->name('admin.all.apply_for_rent')->middleware('auth:admin');
 
@@ -70,6 +71,9 @@ Route::get('dashboard','PageController@dashboard')->name('pages.dashboard');
 
 Route::get('propertydetails/{id}','PageController@propertydetails')->name('pages.propertydetails');
 Route::post('applyForRent','PageController@applyForRent')->name('pages.applyForRent');
+
+Route::post('likeProperty','PageController@likeProperty')->name('pages.likeProperty');
+Route::post('disLikeProperty','PageController@disLikeProperty')->name('pages.disLikeProperty');
 
 Route::get('propertylisting','PageController@propertylisting')->name('pages.propertylisting');
 

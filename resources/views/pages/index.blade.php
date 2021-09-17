@@ -241,234 +241,236 @@
                 </div>
             </div>
             
-            @if (count($property_by_search) > 0)
-                <div class="row">
-                    
-                    @foreach ($property_by_search as $search)
-                        <!-- Single Property -->
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="property-listing property-2">
-                                
-                                <div class="listing-img-wrapper">
-                                    <div class="list-img-slide">
-                                        <div class="click">
-                                            <div>
-                                                @if ($search->properties_to_images->count() > 0)
-                                                    @foreach ($search->properties_to_images as $image)
+            @guest
+                @if (count($property_by_search) > 0)
+                    <div class="row">
+                        
+                        @foreach ($property_by_search as $search)
+                            <!-- Single Property -->
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="property-listing property-2">
+                                    
+                                    <div class="listing-img-wrapper">
+                                        <div class="list-img-slide">
+                                            <div class="click">
+                                                <div>
+                                                    @if ($search->properties_to_images->count() > 0)
+                                                        @foreach ($search->properties_to_images as $image)
+                                                            <a href="{{route('pages.propertydetails',$search->id)}}">
+                                                                <img src="{{asset('uplaods/'.$image->big_img)}}" class="img-fluid mx-auto" alt="" />
+                                                            </a>
+                                                        @endforeach 
+                                                    @else
                                                         <a href="{{route('pages.propertydetails',$search->id)}}">
-                                                            <img src="{{asset('uplaods/'.$image->big_img)}}" class="img-fluid mx-auto" alt="" />
+                                                            <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
                                                         </a>
-                                                    @endforeach 
-                                                @else
-                                                    <a href="{{route('pages.propertydetails',$search->id)}}">
-                                                        <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
-                                                    </a>
-                                                @endif
-                                                                                              
+                                                    @endif
+                                                                                                
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="listing-detail-wrapper">
-                                    <div class="listing-short-detail-wrap">
-                                        <div class="listing-short-detail">
-                                            <span class="property-type">{{$search->property_status}}</span>
-                                            <h4 class="listing-name verified"><a href="" class="prt-link-detail">{{$search->property_title}}</a></h4>
-                                        </div>
-                                        <div class="listing-short-detail-flex">
-                                            <h6 class="listing-card-info-price"> Rs {{$search->property_price}}</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="price-features-wrapper">
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/bed.svg')}}" width="13" alt="" /></div>
-                                        {{$search->no_of_bedrooms}} Beds
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/bathtub.svg')}}" width="13" alt="" /></div>{{$search->no_of_bathrooms}} Bath
-                                    </div>
-                                    <div class="listing-card-info-icon">
-                                        <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/move.svg')}}" width="13" alt="" /></div>{{$search->property_area}}
-                                    </div>
-                                </div>
-                                
-                                <div class="listing-detail-footer">
-                                    <div class="footer-first">
-                                        <div class="foot-location"><img src="{{asset('frontend/assets/img/pin.svg')}}" width="18" alt="" />
-                                            {{$search->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}}, 
-                                            				{{$search->properties_to_property_addresses->property_addresses_to_zones->zone_name}}
+                                    
+                                    <div class="listing-detail-wrapper">
+                                        <div class="listing-short-detail-wrap">
+                                            <div class="listing-short-detail">
+                                                <span class="property-type">{{$search->property_status}}</span>
+                                                <h4 class="listing-name verified"><a href="" class="prt-link-detail">{{$search->property_title}}</a></h4>
+                                            </div>
+                                            <div class="listing-short-detail-flex">
+                                                <h6 class="listing-card-info-price"> Rs {{$search->property_price}}</h6>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="footer-flex">
-                                        <a href="{{route('pages.propertydetails',$search->id)}}" class="prt-view">View</a>
+                                    
+                                    <div class="price-features-wrapper">
+                                        <div class="listing-card-info-icon">
+                                            <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/bed.svg')}}" width="13" alt="" /></div>
+                                            {{$search->no_of_bedrooms}} Beds
+                                        </div>
+                                        <div class="listing-card-info-icon">
+                                            <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/bathtub.svg')}}" width="13" alt="" /></div>{{$search->no_of_bathrooms}} Bath
+                                        </div>
+                                        <div class="listing-card-info-icon">
+                                            <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/move.svg')}}" width="13" alt="" /></div>{{$search->property_area}}
+                                        </div>
                                     </div>
+                                    
+                                    <div class="listing-detail-footer">
+                                        <div class="footer-first">
+                                            <div class="foot-location"><img src="{{asset('frontend/assets/img/pin.svg')}}" width="18" alt="" />
+                                                {{$search->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}}, 
+                                                                {{$search->properties_to_property_addresses->property_addresses_to_zones->zone_name}}
+                                            </div>
+                                        </div>
+                                        <div class="footer-flex">
+                                            <a href="{{route('pages.propertydetails',$search->id)}}" class="prt-view">View</a>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                                
                             </div>
-                        </div>
-                        <!-- End Single Property -->
-                    @endforeach
-                    
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <a href="" class="btn btn-theme-light-2 rounded" data-bs-toggle="modal" data-bs-target="#signup">Browse More Properties</a>
+                            <!-- End Single Property -->
+                        @endforeach
+                        
                     </div>
-                </div>
-            @endif
+                    
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                            <a href="" class="btn btn-theme-light-2 rounded" data-bs-toggle="modal" data-bs-target="#signup">Browse More Properties</a>
+                        </div>
+                    </div>
+                @endif 
 
-            
-            
+            @else 
+
+                @if (count($property_by_search) > 0)
+                    <div class="row">
+                        
+                        @foreach ($property_by_search as $search)
+                            <!-- Single Property -->
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="property-listing property-2">
+                                    
+                                    <div class="listing-img-wrapper">
+                                        <div class="list-img-slide">
+                                            <div class="click">
+                                                <div>
+                                                    @if ($search->search_histories_to_properties->properties_to_images->count() > 0)
+                                                        @foreach ($search->search_histories_to_properties->properties_to_images as $image)
+                                                            <a href="{{route('pages.propertydetails',$search->property_id)}}">
+                                                                <img src="{{asset('uplaods/'.$image->big_img)}}" class="img-fluid mx-auto" alt="" />
+                                                            </a>
+                                                        @endforeach 
+                                                    @else
+                                                        <a href="{{route('pages.propertydetails',$search->property_id)}}">
+                                                            <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                                        </a>
+                                                    @endif
+                                                                                                
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="last-visited-div">
+                                            Last Visited : {{ date("F j, Y, g:i a", strtotime($search->last_visited)) }}
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="listing-detail-wrapper">
+                                        <div class="listing-short-detail-wrap">
+                                            <div class="listing-short-detail">
+                                                <span class="prt-types sale">{{$search->search_histories_to_properties->property_status}}</span>
+                                                <h4 class="listing-name verified"><div class="">{{$search->search_histories_to_properties->property_title}}</div></h4>
+                                            </div>
+                                            <div class="listing-short-detail-flex">
+                                                <h6 class="listing-card-info-price"> Rs {{$search->search_histories_to_properties->property_price}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="price-features-wrapper">
+                                        <div class="listing-card-info-icon">
+                                            <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/bed.svg')}}" width="13" alt="" /></div>
+                                            {{$search->search_histories_to_properties->no_of_bedrooms}} Beds
+                                        </div>
+                                        <div class="listing-card-info-icon">
+                                            <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/bathtub.svg')}}" width="13" alt="" /></div>{{$search->search_histories_to_properties->no_of_bathrooms}} Bath
+                                        </div>
+                                        <div class="listing-card-info-icon">
+                                            <div class="inc-fleat-icon"><img src="{{asset('frontend/assets/img/move.svg')}}" width="13" alt="" /></div>{{$search->search_histories_to_properties->property_area}}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="listing-detail-footer">
+                                        <div class="footer-first">
+                                            <div class="foot-location"><img src="{{asset('frontend/assets/img/pin.svg')}}" width="18" alt="" />
+                                                {{$search->search_histories_to_properties->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}}, 
+                                                                {{$search->search_histories_to_properties->properties_to_property_addresses->property_addresses_to_zones->zone_name}}                                                              
+                                            </div>
+                                        </div>
+                                        <div class="footer-flex">
+                                            <a href="{{route('pages.propertydetails',$search->search_histories_to_properties->id)}}" class="prt-view">View</a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- End Single Property -->
+                        @endforeach
+                        
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                            <a href="{{route('pages.propertylisting',[csrf_token(),'search_history'=>Auth::user()->id])}}" class="btn btn-theme-light-2 rounded-browse-more">
+                                Browse All Properties</a>
+                        </div>
+                    </div>
+                @endif
+
+            @endguest
+                      
         </div>	
     </section>
     <!-- ================================= Explore Property =============================== -->
     
     <!-- ============================ Property Location Start ================================== -->
-    <section class="bg-light">
-        <div class="container">
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-10 text-center">
-                    <div class="sec-heading center">
-                        <h2>Find By Your Locations</h2>
-                    </div>
-                </div>
-            </div>
-            
-            @if (count($property_by_location) > 0)
-                <div class="row">
+    @if (Auth::check())
+        <section class="bg-light">
+            <div class="container">
                 
-                    <div class="col-lg-4 col-md-4">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href=""><img src="{{asset('frontend/assets/img/7 (7).jpg')}}" class="img-fluid" alt="" /></a>
-                            </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title">San Francisco, California</h4>
-                                    <span>12 Properties</span>
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="" class="lp-property-view"><i class="ti-angle-right"></i></a>
-                                </div>
-                            </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-10 text-center">
+                        <div class="sec-heading center">
+                            <h2>Find By Your Locations</h2>
                         </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-4">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href=""><img src="{{asset('frontend/assets/img/7 (8).jpg')}}" class="img-fluid" alt="" /></a>
-                            </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title">Dunao, California</h4>
-                                    <span>142 Properties</span>
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="" class="lp-property-view"><i class="ti-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-4">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href=""><img src="{{asset('frontend/assets/img/7 (9).jpg')}}" class="img-fluid" alt="" /></a>
-                            </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title">Liverpool, London</h4>
-                                    <span>17 Properties</span>
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="" class="lp-property-view"><i class="ti-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-4">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href=""><img src="{{asset('frontend/assets/img/7 (10).jpg')}}" class="img-fluid" alt="" /></a>
-                            </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title">San Francisco, New York</h4>
-                                    <span>72 Properties</span>
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="" class="lp-property-view"><i class="ti-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-4">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href=""><img src="{{asset('frontend/assets/img/7 (11).jpg')}}" class="img-fluid" alt="" /></a>
-                            </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title">New Orleans, Louisiana</h4>
-                                    <span>102 Properties</span>
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="" class="lp-property-view"><i class="ti-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-4">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href=""><img src="{{asset('frontend/assets/img/7 (12).jpg')}}" class="img-fluid" alt="" /></a>
-                            </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title">Los Angeles</h4>
-                                    <span>95 Properties</span>
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="" class="lp-property-view"><i class="ti-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <a href="" class="btn btn-theme-light rounded">Browse More Locations</a>
                     </div>
                 </div>
-            @endif
-            
-            @guest
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <a href="" class="btn btn-theme-light rounded">Login Now</a>
+                
+                @if ($property_by_location->count() > 0)
+                    <div class="row">
+                        @foreach ($property_by_location as $property)
+                            <div class="col-lg-4 col-md-4">
+                                <div class="location-property-wrap">
+                                    <div class="location-property-thumb">
+                                        <a href="{{route('pages.propertydetails',$property->id)}}">
+                                            @if ($property->properties_to_images->count()>0)
+                                                <img src="{{asset('uplaods/'.$property->properties_to_images[0]->big_img)}}" class="img-fluid mx-auto" alt="" />
+                                            @else
+                                                <a href="{{route('pages.propertydetails',$property->id)}}">
+                                                    <img src="https://via.placeholder.com/1200x800" class="img-fluid mx-auto" alt="" />
+                                                </a>
+                                            @endif
+                                        </a>
+                                        {{-- <a href=""><img src="{{asset('frontend/assets/img/7 (7).jpg')}}" class="img-fluid" alt="" /></a> --}}
+                                    </div>
+                                    <div class="location-property-content">
+                                        <div class="lp-content-flex">
+                                            <h4 class="lp-content-title">{{$property->property_title}}</h4>
+                                            <span>
+                                                {{$property->properties_to_property_addresses->property_addresses_to_zone_cities->city_name}}, 
+                                            {{$property->properties_to_property_addresses->property_addresses_to_zones->zone_name}}
+                                            </span>
+                                        </div>
+                                        <div class="lp-content-right">
+                                            <a href="{{route('pages.propertydetails',$property->id)}}" class="lp-property-view"><i class="ti-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach                       
                     </div>
-                </div>               
-            @else
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <a href="{{route('pages.myprofile')}}" class="btn btn-theme-light rounded">Set Your Location</a>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                            <a href="{{route('pages.propertylisting',[csrf_token(), 'city_id'=>$property->properties_to_property_addresses->city])}}" class="btn btn-theme-light-2 rounded-browse-more">Browse All Properties</a>
+                        </div>
                     </div>
-                </div>
-            @endguest
-            
-            
-        </div>
-    </section>
+                @endif
+            </div>
+        </section>
+    @endif
+    
     <!-- ============================ Property Location End ================================== -->
     
     <!-- ============================ All Random Property ================================== -->
@@ -543,7 +545,7 @@
                                         </span>
                                     </div>
                                     <div class="listing-detail-btn">
-                                        <a href="{{route('pages.propertydetails',$random_property->id,$random_property->id)}}" class="more-btn">View</a>
+                                        <a href="{{route('pages.propertydetails',$random_property->id)}}" class="more-btn">View</a>
                                     </div>
                                 </div>
                                 
@@ -559,7 +561,7 @@
             <!-- Pagination -->
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                    <a href="{{route('pages.propertylisting')}}" class="btn btn-theme-light-2 rounded-browse-more">Browse More Properties</a>
+                    <a href="{{route('pages.propertylisting',[csrf_token()])}}" class="btn btn-theme-light-2 rounded-browse-more">Browse All Properties</a>
                 </div>
             </div>
             
