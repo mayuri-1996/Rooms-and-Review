@@ -35,7 +35,10 @@
                                     <th>Sl no</th>
                                     <th>Name</th>
                                     <th>Phone</th>
+                                    <th>State</th>
+                                    <th>city</th>
                                     <th>Address</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +47,18 @@
                                         <td>{{$key + 1}}</td>
                                         <td>{{$list->post_property_requests_to_buyers->name}}</td>
                                         <td>{{$list->post_property_requests_to_buyers->phone}}</td>
+                                        <td>{{$list->post_property_requests_to_zone_cities->zone_cities_to_zones->zone_name}}</td>
+                                        <td>{{$list->post_property_requests_to_zone_cities->city_name}}</td>
                                         <td>{{$list->address}}</td>
+                                        <td>
+                                            <a href="{{route('admin.detail.post_property',['detailed_data' => $list])}}">
+                                                <button type="button" class="btn btn-rounded  btn-outline-info"> 
+                                                    <i class="mdi mdi-pencil-box"></i> 
+                                                    View details
+                                                </button>
+                                            </a>
+                                            
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
