@@ -35,8 +35,9 @@
                                             Owner Name
                                         </label>                                       
                                         <div class="col-md-8">
-                                            
-                                            <select class="form-control custom-select select2 owner_id"  name="owner_id">
+                                            <input type="hidden" class="form-control" name="owner_id" value="{{$property->properties_to_buyers->id}}" readonly>
+                                            <input type="text" class="form-control" value="{{$property->properties_to_buyers->name}}" readonly>
+                                            {{-- <select class="form-control custom-select select2 owner_id"  name="owner_id">
                                                 <option value="">Select owner</option>
                                                 @foreach ($users as $user)
                                                     <option value="{{$user->id}}"
@@ -46,7 +47,7 @@
                                                     >
                                                     {{$user->post_property_requests_to_buyers->name}}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
                                          </div>
                                     </div>
                                 </div>
@@ -57,7 +58,7 @@
                                     <div class="form-group">
                                         <label class="control-label text-right">Email</label>
                                         <div class="">
-                                            <input type="text" class="form-control" id="user_email" readonly>
+                                            <input type="text" class="form-control" value="{{$property->properties_to_buyers->email}}" id="user_email" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +67,7 @@
                                     <div class="form-group">
                                         <label class="control-label text-right">Phone</label>
                                         <div class="">
-                                            <input type="text" class="form-control" id="user_phone" readonly>
+                                            <input type="text" class="form-control" value="{{$property->properties_to_buyers->phone}}" id="user_phone" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +85,7 @@
                                         <div class="form-group">
                                             <label class="control-label">Property Title</label>
                                             <div class="">
-                                                <input type="text" class="form-control property_title" value="{{$property->property_title}}" name="property_title" disabled>
+                                                <input type="text" class="form-control property_title" value="{{$property->property_title}}" name="property_title">
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +95,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Status</label>
-                                            <select class="form-control custom-select select2 property_status" name="property_status" disabled>
+                                            <select class="form-control custom-select select2 property_status" name="property_status">
                                                 <option value="">Select status</option>
                                                 <option value="For Rent" selected>For Rent</option>
                                             </select>
@@ -103,10 +104,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label class="control-label text-right">Property Type</label>
-                                            <select class="form-control custom-select select2" name="propert_type" disabled>
+                                            <select class="form-control custom-select select2" name="propert_type">
                                                 <option value="">Select property type</option>
-                                                @foreach ($types as $type)
-                                                    <option value="{{$type->id}}">{{$type->name}}</option>
+                                                @foreach ($types as $type)                                                   
+                                                    <option value="{{$type->id}}" 
+                                                        {{$property->property_type_id == $type->id ? 'selected' : ''}}
+                                                    >{{$type->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -117,7 +120,7 @@
                                         <div class="form-group">
                                             <label class="control-label">Price</label>
                                             <div class="">
-                                                <input type="text" class="form-control" name="propety_price" disabled>
+                                                <input type="text" class="form-control" value="{{$property->property_price}}" name="propety_price">
                                             </div>
                                         </div>
                                     </div>
@@ -129,12 +132,17 @@
                                                 <input type="text" class="form-control" name="property_area" disabled>
                                             </div> --}}
                                             <div class="row">
+                                                @php
+                                                    $full_area = explode(' ', $property->property_area);
+                                                @endphp
                                                 <div class="col-md-7">
-                                                    <input type="number" class="form-control" name="property_area" disabled>
+                                                    <input type="number" class="form-control" value="{{$full_area[0]}}" name="property_area">
                                                 </div>
                                                 <div class="col-md-5" style="padding-left: 0;">
-                                                    <select class="form-control custom-select" name="property_area_measure" disabled>
-                                                        <option value="sq.ft">sq.ft</option>
+                                                    <select class="form-control custom-select" name="property_area_measure">
+                                                        <option value="sq.ft"
+                                                            {{$full_area[1] == 'sq.ft' ? 'selected' : ''}}
+                                                        >sq.ft</option>
                                                         {{-- <option value="year">year</option> --}}
                                                     </select>
                                                 </div>
@@ -149,13 +157,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Bedrooms</label>
-                                            <input type="number" class="form-control" name="no_of_bedrooms" disabled>
+                                            <input type="number" class="form-control" value="{{$property->no_of_bedrooms}}" name="no_of_bedrooms">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label class="control-label text-right">Bathrooms</label>
-                                            <input type="number" class="form-control" name="no_of_bathrooms" disabled>
+                                            <input type="number" class="form-control" value="{{$property->no_of_bathrooms}}" name="no_of_bathrooms">
                                         </div>
                                     </div>
                                 </div>
@@ -165,13 +173,20 @@
                                         <div class="form-group">
                                             <label class="control-label">Building Age</label>
                                             <div class="row">
+                                                @php
+                                                    $full_age = explode(' ', $property->building_age)
+                                                @endphp
                                                 <div class="col-md-7">
-                                                    <input type="number" class="form-control" name="building_age" disabled>
+                                                    <input type="number" class="form-control" value="{{$full_age[0]}}" name="building_age">
                                                 </div>
                                                 <div class="col-md-5" style="padding-left: 0;">
-                                                    <select class="form-control custom-select" name="building_age_status" disabled>
-                                                        <option value="month">month</option>
-                                                        <option value="year">year</option>
+                                                    <select class="form-control custom-select" name="building_age_status">
+                                                        <option value="month"
+                                                            {{$full_age[1] == 'month' ? 'selected' : ''}}
+                                                        >month</option>
+                                                        <option value="year"
+                                                            {{$full_age[1] == 'year' ? 'selected' : ''}}
+                                                        >year</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -181,7 +196,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label class="control-label text-right">Garage</label>
-                                            <input type="number" class="form-control" name="no_of_garage" disabled>
+                                            <input type="number" class="form-control" name="no_of_garage">
                                         </div>
                                     </div>
                                     {{-- <div class="col-md-4">
@@ -198,10 +213,15 @@
                                             <label class="control-label">Other Features</label>
                                             <div class="row">                                           
                                                 @foreach ($others_feachures as $key=>$others_feachure)
-                                                    <div class="checkbox checkbox-success col-md-4">
-                                                        <input id="checkbox{{$key}}" type="checkbox" name="other_feachure[]" disabled value="{{$others_feachure->id}}">
-                                                        <label for="checkbox{{$key}}">{{$others_feachure->name}}</label>
-                                                    </div>
+                                                    @foreach ($property->properties_to_property_to_other_features as $feachure)
+                                                        <div class="checkbox checkbox-success col-md-4">
+                                                            <input id="checkbox{{$key}}" type="checkbox"
+                                                                {{ $feachure->other_feature_id == $others_feachure->id ? 'checked' : '' }}
+                                                                name="other_feachure[]" value="{{$others_feachure->id}}"
+                                                            >
+                                                            <label for="checkbox{{$key}}">{{$others_feachure->name}}</label>
+                                                        </div>
+                                                    @endforeach                                          
                                                 @endforeach                                          
                                             </div>
                                         </div>
@@ -213,77 +233,14 @@
                                         <div class="form-group">
                                             <label class="control-label">Detailed Information</label>
                                             <div class="">
-                                                <textarea class="form-control" rows="5" name="property_desc" disabled></textarea>
+                                                <textarea class="form-control" rows="5" name="property_desc">{{$property->detailed_info}}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h3 class="box-title">Gallery</h3>
-                                <hr class="m-t-0 m-b-40" style="margin-bottom: 20px;">
 
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row" style="margin-bottom: .5rem;">
-                                                    <div class="col-md-6">
-                                                        <label for="input-file-now">Upload Image</label>
-                                                    </div>
-                                                    <div class="col-md-6 text-right ">
-                                                        <button type="button" id="add_image" disabled class="btn btn-primary btn-circle"><i class="fa fa-plus"></i> </button>
-                                                        {{-- <button type="button" id="delete_image" onclick="deleteThis()" class="btn btn-danger btn-circle delete"><i class="fa fa-trash-o"></i> </button> --}}
-                                                    </div>
-                                                </div>
-                                                <div class="append">
-                                                    <div class="row" style="margin-bottom: 10px">
-                                                        <div class="col-md-6">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="ti-image"></i></div>
-                                                                <input type="file" class="form-control" name="image[]" disabled id="pwd1">
-                                                            </div>
-                                                        </div>
-                                                                                                
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <h3 class="box-title">Video</h3>
-                                <hr class="m-t-0 m-b-40" style="margin-bottom: 20px;">
-
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row" style="margin-bottom: .5rem;">
-                                                    <div class="col-md-6">
-                                                        <label for="input-file-now">Upload Video</label>
-                                                    </div>
-                                                    <div class="col-md-6 text-right ">
-                                                        <button type="button" disabled id="add_video" class="btn btn-primary btn-circle"><i class="fa fa-plus"></i> </button>
-                                                        {{-- <button type="button" id="delete_image" onclick="deleteThis()" class="btn btn-danger btn-circle delete"><i class="fa fa-trash-o"></i> </button> --}}
-                                                    </div>
-                                                </div>
-                                                <div class="video_append">
-                                                    <div class="row" style="margin-bottom: 10px">
-                                                        <div class="col-md-6">
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon"><i class="ti-image"></i></div>
-                                                                <input type="file" class="form-control" name="video[]" disabled id="video">
-                                                            </div>
-                                                        </div>
-                                                                                                
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                                 <h3 class="box-title">Address</h3>
                                 <hr class="m-t-0 m-b-40" style="margin-bottom: 20px;">
@@ -293,10 +250,10 @@
                                         <div class="form-group">
                                             <label class="control-label">Country</label>
                                             <div class="">
-                                                <select class="form-control custom-select select2 country" disabled id="country" name="property_country">
+                                                <select class="form-control custom-select select2 country" id="country" name="property_country">
                                                     <option value="">Select country</option>
                                                     @foreach ($countries as $country)
-                                                        <option value="{{$country->id}}">{{$country->name}}</option>
+                                                        <option value="{{$country->id}}" selected>{{$country->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -305,8 +262,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">State</label>
-                                            <div class="">
-                                                <select class="form-control custom-select select2 appendstate" disabled id="state" name="property_state">
+                                            <div class="select_div">
+                                                <select class="form-control custom-select appendstate" id="state" name="property_state">
                                                     <option value="">Select state</option>
                                                     
                                                 </select>
@@ -320,7 +277,7 @@
                                         <div class="form-group">
                                             <label class="control-label">City</label>
                                             <div class="">
-                                                <select class="form-control custom-select select2 append_city" disabled id="append_city" name="property_city">
+                                                <select class="form-control custom-select select2 append_city" id="append_city" name="property_city">
                                                     <option value="">Select city</option>
                                                 </select>
                                             </div>
@@ -330,7 +287,8 @@
                                         <div class="form-group">
                                             <label class="control-label">Zip Code</label>
                                             <div class="">
-                                                <input type="text" class="form-control" disabled name="property_zipcode">
+                                                <input type="text" class="form-control" 
+                                                value="{{$property->properties_to_property_addresses->pincode}}" name="property_zipcode">
                                             </div>
                                         </div>
                                     </div>
@@ -341,7 +299,9 @@
                                         <div class="form-group">
                                             <label class="control-label">Landmark</label>
                                             <div class="">
-                                                <input type="text" class="form-control" disabled name="property_land_mark">
+                                                <input type="text" class="form-control" 
+                                                value="{{$property->properties_to_property_addresses->land_mark}}"
+                                                name="property_land_mark">
                                             </div>
                                         </div>
                                     </div>
@@ -349,7 +309,9 @@
                                         <div class="form-group">
                                             <label class="control-label">Address</label>
                                             <div class="">
-                                                <textarea class="form-control" rows="5" disabled name="property_address"></textarea>
+                                                <textarea class="form-control" rows="5" name="property_address">
+                                                    {{$property->properties_to_property_addresses->street_name}}
+                                                </textarea>
                                                 {{-- <input type="text" class="form-control" name="property_address"> --}}
                                             </div>
                                         </div>
@@ -373,7 +335,6 @@
                                         <div class="col-md-6"> </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </form>
@@ -382,9 +343,64 @@
         </div>
     </div>
 </div>
+
+<style>
+    .select2-container {
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        vertical-align: middle;
+        width: 100% !important;
+    }
+</style>
 <script src="{{asset('adminPanel/assets/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('adminPanel/assets/plugins/select2/dist/js/select2.full.min.js')}}" type="text/javascript"></script>
 <script>
+    $('document').ready(function(){
+        var country_id = $('.country').val();
+        var property_state = '{{$property->properties_to_property_addresses->state}}';
+        var property_city = '{{$property->properties_to_property_addresses->city}}';
+        console.log(property_state)
+        $('.appendstate').val(1);
+        $.ajax({
+            url: "{{route('admin.get.states')}}",
+            type: 'get',
+            dataType: 'json',
+            data: {country_id: country_id},
+            success: function(res){
+                res.forEach(element => {
+                    
+                    if(element.id == property_state){
+                        var states = `<option value="`+element.id+`" selected>`+element.zone_name+`</option>`
+                    }else{
+                        var states = `<option value="`+element.id+`">`+element.zone_name+`</option>`
+                    }
+                    
+                    $('#state').append(states)
+                });
+                
+            }
+        });
+        
+        $.ajax({
+            url: "{{route('admin.get.cities')}}",
+            type: 'get',
+            dataType: 'json',
+            data: {state_id: property_state},
+            success: function(res){
+                console.log(res)
+                res.forEach(element => {
+                    if(property_city == element.id){
+                        var city = `<option value="`+element.id+`" selected>`+element.city_name+`</option>`
+                    }else{
+                        var city = `<option value="`+element.id+`">`+element.city_name+`</option>`
+                    }                   
+                    $('#append_city').append(city);
+                })
+            }
+        });
+    })
     var count = 0;
     $("#add_image").on('click',function(){
         // alert('ok')
@@ -447,27 +463,6 @@
 
     $(".select2").select2();
 
-    $('.owner_id').select2({}).on("select2:select", function (e) {
-        console.log($(this).val())
-        var data = e.params.data;       
-        var user_id = $(this).val();
-        console.log(user_id);
-        $.ajax({
-            url: "{{route('admin.get.user')}}",
-            type: 'get',
-            dataType: 'json',
-            data: {id: user_id},
-            success: function(res){
-                console.log(res)
-                $('#user_email').val(res.email);
-                $('#user_phone').val(res.phone);
-                $('input').removeAttr('disabled');
-                $('select').removeAttr('disabled');
-                $('textarea').removeAttr('disabled');
-                $('button').removeAttr('disabled');
-            }
-        });
-    });
     
     $('.country').select2({}).on("select2:select", function (e) {
         var country_id = $(this).val();
@@ -487,25 +482,6 @@
         })
     });
 
-    
-
-    // $('#country').on('change', function(){
-    //     var country_id = $(this).val();
-    //     $.ajax({
-    //         url: "{{route('admin.get.states')}}",
-    //         type: 'get',
-    //         dataType: 'json',
-    //         data: {country_id: country_id},
-    //         success: function(res){
-    //             console.log(res)
-    //             res.forEach(element => {
-    //                 var states = `<option value="`+element.id+`">`+element.zone_name+`</option>`
-    //                 $('#state').append(states)
-    //             });
-                
-    //         }
-    //     })
-    // });
 
     $('.appendstate').select2({}).on("select2:select", function(e){
         var state_id = $(this).val();
@@ -523,6 +499,7 @@
             }
         });
     });
+
 
     
 </script>  

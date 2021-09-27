@@ -265,6 +265,9 @@ class AdminController extends Controller
             'details' => $details
         ]);
     }
+    public function approvePostPropertyRequest(){
+        
+    }
 
     public function allApplyForRent(){
         $lists = ApplyForRent::with('apply_for_rent_to_buyers')->where('is_active',0)->get();

@@ -66,7 +66,7 @@
 					data: {country_id: country_id},
 					success: function(res){
 						res.forEach(element => {
-							var states = `<option value="`+element.id+`">`+element.zone_name+`</option>`
+							var states = `<option value="`+element.id+`" >`+element.zone_name+`</option>`
 							$('.state').append(states)
 						});
 						

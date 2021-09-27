@@ -43,7 +43,7 @@
                 <div class="card-body">
                     <form class="form-horizontal form-material" id="loginform" action="{{route('admin.auth.loginAdmin')}}" method="post">
                         @csrf
-                        <h3 class="box-title m-b-20">Sign In</h3>
+                        <h3 class="box-title m-b-20">Log In as Admin</h3>
                         <div class="form-group ">
                             <div class="col-xs-12">
                                 <input class="form-control" type="text" required="" placeholder="Username" name="email"> </div>
@@ -52,26 +52,13 @@
                             <div class="col-xs-12">
                                 <input class="form-control" type="password" required="" placeholder="Password" name="password"> </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-md-12 font-14">
-                                <div class="checkbox checkbox-primary pull-left p-t-0">
-                                    <input id="checkbox-signup" type="checkbox" name="remember">
-                                    <label for="checkbox-signup"> Remember me </label>
-                                </div> 
-                                {{-- <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><!-- <i class="fa fa-lock m-r-5"></i> --> Forgot pwd?</a>  --}}
-                            </div>
-                        </div>
+
                         <div class="form-group text-center m-t-20">
                             <div class="col-xs-12">
                                 <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
                             </div>
                         </div>
                         
-                        <div class="form-group m-b-0">
-                            <div class="col-sm-12 text-center">
-                                <div>Don't have an account? <a href="{{route('admin.register')}}" class="text-info m-l-5"><b>Sign Up</b></a></div>
-                            </div>
-                        </div>
                     </form>
                     <form class="form-horizontal" id="recoverform" action="index.html">
                         <div class="form-group ">

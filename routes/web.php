@@ -21,8 +21,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'Auth\Admin\AdminController@dashBoard')->name('admin.dashboard');
     Route::get('index', 'Auth\Admin\AdminController@dashBoard')->name('admin.dashboard');
 
-    Route::get('register', 'Auth\Admin\AdminController@create')->name('admin.register');
-    Route::post('post/register', 'Auth\Admin\AdminController@store')->name('admin.register.store');
+    // Route::get('register', 'Auth\Admin\AdminController@create')->name('admin.register');
+    // Route::post('post/register', 'Auth\Admin\AdminController@store')->name('admin.register.store');
     Route::get('login', 'Auth\Admin\LoginController@login')->name('admin.auth.login');
     Route::post('login', 'Auth\Admin\LoginController@loginAdmin')->name('admin.auth.loginAdmin');
     Route::post('logout', 'Auth\Admin\LoginController@logout')->name('admin.auth.logout');
@@ -89,6 +89,6 @@ Route::get('User-Login','PageController@login')->name('pages.signup');
 Route::post('post/login', 'Auth\Frontend\LoginController@loginBuyer')->name('buyer.auth.login');
 Route::post('buyer/logout', 'Auth\Frontend\LoginController@logout')->name('buyer.auth.logout');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
